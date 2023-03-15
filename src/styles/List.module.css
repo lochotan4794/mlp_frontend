@@ -1,0 +1,10 @@
+
+.item {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+.item > img {
+    width: 50%;
+}
