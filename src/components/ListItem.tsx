@@ -8,13 +8,14 @@ type Props = {
 }
 
 const ListItem = ({ data }: Props) => (
+  
   <Link href="/posts/[id]" as={`/posts/${data.slug}`}>
     <>
-      <div style={{display: "flex", flexDirection: "column", width:"100%"}}>
-        <img src={data.ava} style={{width: "50%"}}/>
-        <div style={{width: "50%"}}>
-          <h3>{data.title}</h3>
-          <p>{data.abstract}</p></div></div>
+      <div style={{display: "flex", flexDirection: "row", width:"100%", height:"fit-content"}}>
+        <img src={data.ava} style={{maxWidth: "40%", margin:"3rem", width:"fit-content"}}/>
+        <div style={{maxWidth: "60%"}}>
+          <h4>{data.title}</h4>
+          <p>{data.abstract.substring(0,200) + "..."}</p></div></div>
     </>
   </Link>
 )

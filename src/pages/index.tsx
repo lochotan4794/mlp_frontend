@@ -6,7 +6,6 @@ import Page from './page'
 import Header from '@/components/header'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { NextPage } from 'next'
-const inter = Inter({ subsets: ['latin'] })
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import MainLayout from '@/components/MainLayout'
@@ -15,11 +14,10 @@ import { ItemLink, Post } from '@/interfaces'
 import List from '@/components/List'
 import LeftSide from '@/components/LeftSide'
 import RightSide from '@/components/RightSide'
-import 'katex/dist/katex.min.css'
-// import Latex from 'react-latex-next'
-// import Latex from './Latex'
 import React, { useState } from "react";
-import MathCode from './example'
+import { MathJax, MathJaxContext } from "better-react-mathjax";
+const inter = Inter({ subsets: ['latin'] })
+import HlCode from '@/components/Code'
 
 type IndexProps = {
   all: Post[],
@@ -30,8 +28,31 @@ type IndexProps = {
 
 const IndexPage = ({ all, relative, relevent }: IndexProps) => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <h1>My Post</h1>
+    {/* <h1>My Post</h1>
+    <HlCode content={`
+        def fib(n):
+  a, b = 0, 1
+    while a < n:
+      print(a, end=' ')
+      a, b = b, a+b
+      print()
+  fib(1000)`} />
+    <pre
+      style={{
+        marginTop: "10px"
+      }}
+    ><code className="python">{`
+        def fib(n):
+  a, b = 0, 1
+    while a < n:
+      print(a, end=' ')
+      a, b = b, a+b
+      print()
+  fib(1000)`}</code>
+    </pre>
+    <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax> */}
     <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} />
+
   </Layout>
 )
 

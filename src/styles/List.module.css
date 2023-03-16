@@ -2,7 +2,7 @@
 .item {
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: white;
 }
 
 .item > img {

@@ -7,6 +7,7 @@ import Layout from '../../components/Layout'
 import List from '../../components/List'
 import { METHODS } from 'http'
 
+
 type Props = {
   items: Post[]
 }

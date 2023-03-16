@@ -1,14 +1,21 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { Post } from '../../interfaces'
+import { Post, Text, Citation, Appendix } from '../../interfaces'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
+import severUrl from '@/utils/api'
+import MainLayout from '@/components/MainLayout'
 
 type Props = {
   item?: Post
+  comments?: Comment[]
+  text: Text[]
+  citation: Citation[]
+  appendix: Appendix[]
+  all: Post[]
   errors?: string
 }
 
-const StaticPropsDetail = ({ item, errors }: Props) => {
+const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, errors }: Props) => {
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
@@ -21,11 +28,31 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
 
   return (
     <Layout
-      title={`${
-        item ? item.title : 'User Detail \(\frac{1}{n}\)'
-      } | Next.js + TypeScript Example`}
+      title={`${item ? item.title : 'User Detail \(\frac{1}{n}\)'
+        } | Next.js + TypeScript Example`}
     >
-      {item && <ListDetail item={item} />}
+      {/* {item && <ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />} */}
+      <>
+        <div style={{
+          display: "grid", gridAutoFlow: "column", gridTemplateAreas: "leftChild middleChild rightChild", gridGap: "10px", maxWidth: "100%", gridAutoColumns: "1fr",
+        }}>
+          <div style={{
+            gridArea: "leftChild",
+            gridColumn: "1/7",
+          }}>{all.map((a) => (
+            <li><a  href={"/posts/" + a.slug}>{a.title}</a></li>
+          ))}</div>
+          <div style={{
+            gridArea: "middleChild",
+            gridColumn: "7/29",
+          }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}</div>
+          <div style={{
+            gridArea: "rightChild",
+            gridColumn: "29/36",
+          }}>{all.map((a) => (
+            <li><a href={"/posts/" + a.slug}>{a.title}</a></li>
+          ))}</div>
+        </div></>
     </Layout>
   )
 }
@@ -75,9 +102,32 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     console.log(res)
     const data = await res.json()
     const item = data['post']
+    const appendix = data['appendix']
+    const citation = data['citation']
+    const text = data['text']
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
-    return { props: { item} }
+    const res1 = await fetch(severUrl + "blog/" + slug + "/comments/", {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    const comments = await res1.json()
+    console.log(comments)
+
+    const res2 = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data1 = await res2.json()
+    const all = data1['post']
+
+    return { props: { item, comments, text, citation, appendix, all } }
+
   } catch (err: any) {
     return { props: { errors: err.message } }
   }

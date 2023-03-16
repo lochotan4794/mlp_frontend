@@ -9,6 +9,33 @@ export type User = {
     name: string
 }
 
+export type Text = {
+  link: string
+  content: string
+  image: string
+  role: number
+  cssId: number
+  id: number
+}
+
+export type Appendix = {
+  indentLevel: number
+  text: string
+  link: string
+  id: number
+}
+
+export type Citation = {
+  text: string
+  id: number
+}
+export type Comment = {
+  email: string, 
+  text: string, 
+  reply_to: number,
+  slug: string
+}
+
 export type ItemLink = {
   slug: string
   title: string
