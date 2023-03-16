@@ -1,5 +1,4 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { sampleUserData } from '../../../utils/sample-data'
 import { User } from '../../interfaces'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'

@@ -22,7 +22,7 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   return (
     <Layout
       title={`${
-        item ? item.title : 'User Detail'
+        item ? item.title : 'User Detail \(\frac{1}{n}\)'
       } | Next.js + TypeScript Example`}
     >
       {item && <ListDetail item={item} />}

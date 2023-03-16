@@ -5,7 +5,6 @@ import { Post } from '../../interfaces'
 // import { sampleUserData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import List from '../../components/List'
-import { sampleUserData } from '../../../utils/sample-data'
 import { METHODS } from 'http'
 
 type Props = {

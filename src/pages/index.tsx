@@ -15,6 +15,11 @@ import { ItemLink, Post } from '@/interfaces'
 import List from '@/components/List'
 import LeftSide from '@/components/LeftSide'
 import RightSide from '@/components/RightSide'
+import 'katex/dist/katex.min.css'
+// import Latex from 'react-latex-next'
+// import Latex from './Latex'
+import React, { useState } from "react";
+import MathCode from './example'
 
 type IndexProps = {
   all: Post[],
@@ -22,9 +27,10 @@ type IndexProps = {
   relevent: Post[]
 }
 
+
 const IndexPage = ({ all, relative, relevent }: IndexProps) => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
+    <h1>My Post</h1>
     <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} />
   </Layout>
 )
