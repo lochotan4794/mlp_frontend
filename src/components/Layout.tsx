@@ -4,13 +4,14 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Navstyles from '@/styles/Nav.module.css'
 import Navbar from './Nav/Navbar'
+import UseModal from './useModal'
 
 type Props = {
   children?: ReactNode
   title?: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
   <div className="container">
     <Head>
       <title>{title}</title>
@@ -38,7 +39,8 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     </Head>
     <header>
       <div style={{ display: "flex", flexDirection: "row" }}><div style={{ width: "90%" }}><a href='/'><h1>Machine Learning Practices</h1></a>
-        <p>Practical Knownledge in Machine Learning</p></div><div style={{ alignItems: "end", textAlign: "end", alignContent: "flex-end", width: "10%", height: "100%" }}><button style={{ height: "fit-content" }}>Login</button></div></div>
+        <p>Practical Knownledge in Machine Learning</p></div><div style={{ alignItems: "end", textAlign: "end", alignContent: "flex-end", width: "10%", height: "100%" }}><UseModal /></div></div>
+        
       {/* <nav className="navbar navbar-light" style={{ backgroundColor: "#384b37" }}>
         <Link className="navbar-brand" href="/">Home</Link> | <Link href="/about">About</Link> |{' '}
         <Link className="navbar-brand" href="/users">Users List</Link> |{' '}
@@ -95,6 +97,25 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     {children}
     <footer>
       <hr />
+      <div
+            className="container"
+            style={{
+              bottom: "0",
+              height: "fit-content",
+              width: "100%",
+              alignItems: "center",
+              alignContent: "stretch",
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "14px",
+              margin: "5px"
+            }}
+          >
+            <a className="footer-section" href="/privacy">Privacy | </a>
+            <a className="footer-section" href="/disclaimer">Disclaimer | </a>
+            <a className="footer-section" href="/terms">Terms | </a>
+            <a className="footer-section" href="/service">Contact </a>
+          </div>
       <div
         // className="container"
         style={{

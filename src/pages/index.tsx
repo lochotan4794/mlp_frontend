@@ -27,7 +27,7 @@ type IndexProps = {
 
 
 const IndexPage = ({ all, relative, relevent }: IndexProps) => (
-  <Layout title="Home | Next.js + TypeScript Example">
+  <Layout title="Machine Learning Practices">
     {/* <h1>My Post</h1>
     <HlCode content={`
         def fib(n):
@@ -51,6 +51,7 @@ const IndexPage = ({ all, relative, relevent }: IndexProps) => (
   fib(1000)`}</code>
     </pre>
     <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax> */}
+
     <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} />
 
   </Layout>

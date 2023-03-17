@@ -11,10 +11,10 @@ type Props = {
 const RightSide = ({ items }: Props) => (
   <ul className={SideStyles.side}>
     {items.map((item) => (
-      <li>
+      <div className={SideStyles.itemLink}>
       <a href={'posts/' + item.slug}>
         {item.title}
-      </a></li>
+      </a></div>
     ))}
   </ul>
 )

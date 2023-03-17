@@ -39,7 +39,7 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, erro
           <div className={SideStyles.leftSide} style={{
           gridArea: "leftChild",
           gridColumn: "1/7",}}>{all.map((a) => (
-            <li><a href={"/posts/" + a.slug}>{a.title}</a></li>
+            <div className={SideStyles.itemLink} ><a href={"/posts/" + a.slug}>{a.title}</a></div>
           ))}</div>
           <div style={{
             gridArea: "middleChild",
@@ -48,7 +48,7 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, erro
           <div style={{
           gridArea: "rightChild",
           gridColumn: "29/36",}} className={SideStyles.rightSide}>{all.map((a) => (
-            <li><a href={"/posts/" + a.slug}>{a.title}</a></li>
+            <div className={SideStyles.itemLink}><a href={"/posts/" + a.slug}>{a.title}</a></div>
           ))}</div>
         </div></>
     </Layout>

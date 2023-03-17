@@ -16,7 +16,18 @@
     grid-column: "29/36";
 }
 
+.itemLink {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
+.itemLink a{
+    text-decoration: unset !important;
+}
+
+.itemDescription {
+    text-decoration: unset !important;
+}
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 

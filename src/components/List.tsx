@@ -41,13 +41,11 @@ export default function List({ items }: Props) {
         pageSize={pageSize} // 10
         onPageChange={onPageChange}
       />
-      <ul>
         {paginatedPosts.map((item: Post) => (
-          <div key={item.title}>
+          <div key={item.title} style={{}}>
             <ListItem data={item} />
           </div>
         ))}
-      </ul>
     </>
   )
 }
