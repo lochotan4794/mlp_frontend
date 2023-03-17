@@ -4,6 +4,8 @@ import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
 import severUrl from '@/utils/api'
 import MainLayout from '@/components/MainLayout'
+import SideStyles from '../../styles/Side.module.css'
+
 
 type Props = {
   item?: Post
@@ -33,23 +35,19 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, erro
     >
       {/* {item && <ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />} */}
       <>
-        <div style={{
-          display: "grid", gridAutoFlow: "column", gridTemplateAreas: "leftChild middleChild rightChild", gridGap: "10px", maxWidth: "100%", gridAutoColumns: "1fr",
-        }}>
-          <div style={{
-            gridArea: "leftChild",
-            gridColumn: "1/7",
-          }}>{all.map((a) => (
-            <li><a  href={"/posts/" + a.slug}>{a.title}</a></li>
+        <div className={SideStyles.main}>
+          <div className={SideStyles.leftSide} style={{
+          gridArea: "leftChild",
+          gridColumn: "1/7",}}>{all.map((a) => (
+            <li><a href={"/posts/" + a.slug}>{a.title}</a></li>
           ))}</div>
           <div style={{
             gridArea: "middleChild",
             gridColumn: "7/29",
           }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}</div>
           <div style={{
-            gridArea: "rightChild",
-            gridColumn: "29/36",
-          }}>{all.map((a) => (
+          gridArea: "rightChild",
+          gridColumn: "29/36",}} className={SideStyles.rightSide}>{all.map((a) => (
             <li><a href={"/posts/" + a.slug}>{a.title}</a></li>
           ))}</div>
         </div></>

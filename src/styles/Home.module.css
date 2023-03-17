@@ -284,6 +284,8 @@
   display: flex;
   flex-direction: row;
   align-content: center;
+  text-align: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -300,7 +302,8 @@
 
 /* pagination pageItem */
 .pageItem {
-  display: flex;
+  display:inline-block;
+  *display:inline; /*IE7*/
   justify-content: center;
   align-items: center;
   width: 2rem;
@@ -312,7 +315,8 @@
 
 /* pagination page item when active */
 .pageItemActive {
-  display: flex;
+  display:inline-block;
+  *display:inline; /*IE7*/
   justify-content: center;
   align-items: center;
   width: 2rem;

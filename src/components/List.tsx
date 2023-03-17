@@ -43,9 +43,9 @@ export default function List({ items }: Props) {
       />
       <ul>
         {paginatedPosts.map((item: Post) => (
-          <li key={item.title}>
+          <div key={item.title}>
             <ListItem data={item} />
-          </li>
+          </div>
         ))}
       </ul>
     </>

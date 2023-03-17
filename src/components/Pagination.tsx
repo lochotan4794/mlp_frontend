@@ -15,8 +15,7 @@ const Pagination = ({ items, pageSize, currentPage, onPageChange }: PagingProp) 
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
 
   return (
-    <div>
-      <ul className={styles.PageContainer}>
+      <ul style={{width:"100%", textAlign:"center", padding:0}} >
         {pages.map((page) => (
           <li
             key={page}
@@ -30,7 +29,7 @@ const Pagination = ({ items, pageSize, currentPage, onPageChange }: PagingProp) 
           </li>
         ))}
       </ul>
-    </div>
+    
   );
 };
 

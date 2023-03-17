@@ -1,0 +1,97 @@
+.main {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-areas: "leftChild middleChild rightChild";
+    grid-gap: 10px;
+    grid-auto-columns: 1fr;
+}
+
+.leftSide {
+    grid-area: "leftChild";
+    grid-column: "1/7";
+}
+
+.rightSide {
+    grid-area: "rightChild";
+    grid-column: "29/36";
+}
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+
+    .side {
+
+    }
+    .leftSide {
+
+    }
+
+    .rightSide {
+
+    }
+
+    .main {
+
+    }
+
+
+}
+
+@media (prefers-reduced-motion) {}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .side {
+        display: none;
+    }
+
+    .leftSide {
+        display: none;
+    }
+
+    .rightSide {
+        display: block;
+    }
+
+    .main {
+        display: block;
+    }
+
+
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+    .leftSide {
+        grid-area: "leftChild";
+        grid-column: "1/7";
+    }
+
+    .rightSide {
+        grid-area: "rightChild";
+        grid-column: "29/36";
+    }
+
+    .side {
+        display: none;
+    }
+
+    .main {
+        display: block;
+    }
+
+ 
+}
+
+@media (prefers-color-scheme: dark) {}
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
