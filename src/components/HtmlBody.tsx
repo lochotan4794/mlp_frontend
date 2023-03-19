@@ -1,6 +1,20 @@
 import React from "react";
 
-export class HtmlBody extends React.Component{
+type Props = {
+    textIndent: number,
+    fontSize: number,
+    content: any
+}
+
+type State = {
+
+}
+
+export class HtmlBody extends React.Component<Props, State>{
+
+    constructor(props: Props) {
+        super(props);
+    }
     rawMarkup(){
         var rawMarkup = this.props.content
         return { __html: rawMarkup };

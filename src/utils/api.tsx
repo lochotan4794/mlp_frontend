@@ -3,6 +3,7 @@ import axios from "axios";
 // const severUrl = "https://backend-env-dev.us-east-1.elasticbeanstalk.com/";
 const severUrl = "http://127.0.0.1:8000/";
 //const severUrl = "https://blog.centralglobalbackend.de/";
+import { Post } from "@/interfaces";
 
 export const getStories = async () => {
   const res = await fetch(severUrl + "blog/post/story/", {
@@ -241,7 +242,7 @@ export const adminRemoveTag = async (tag: string, slug: string) => {
   }
 };
 
-export const adminApi = async (type: string, id: string, action = "none", data: string ) => {
+export const adminApi = async (type: string, id: string, action = "none", data: any ) => {
   // console.log("THIS IS MY DATA")
   // console.log(data)
   if (action == 'update') {
