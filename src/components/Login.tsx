@@ -2,8 +2,19 @@ import React from "react";
 import axios from "axios";
 import severUrl, { register } from "@/utils/api";
 
-class LoginForm extends React.Component {
-  constructor(props) {
+type props = {
+  registering: boolean
+}
+
+type state = {
+  user: any,
+  errorMessage: any,
+  errorMsg: any,
+  submitted: any
+}
+
+class LoginForm extends React.Component<props, state> {
+  constructor(props: props) {
     super(props);
     this.state = {
       user: {
@@ -53,8 +64,8 @@ class LoginForm extends React.Component {
           window.location.reload();
         }
       } catch (err) {
-        console.log( err.response.data)
-        this.setState({errorMsg: err.response.data.message})
+        console.log(err.response.data)
+        this.setState({ errorMsg: err.response.data.message })
       }
     }
   }
