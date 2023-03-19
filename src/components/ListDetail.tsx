@@ -16,7 +16,17 @@ type ListDetailProps = {
 const ListDetail = ({ post, comments, text, citation, appendix }: ListDetailProps) => (
   <>
     <div>
+      <div>
+        {post.previous_post && <a href={"/posts" + post.previous_post.slug}>{post.previous_post.title}</a>}
+        {post.next_post && <a href={"/posts" + post.next_post.slug}>{post.next_post.title}</a>}
+      </div>
       <h1>{post.title}</h1>
+      <div>
+        {post.video && <button>{'video'}</button>}
+      </div>
+      <div>
+        {post.pdf && <button>{'pdf'}</button>}
+      </div>
       <p>{post.abstract}</p>
       {appendix.map((app) => (
         <>

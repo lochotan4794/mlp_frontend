@@ -42,7 +42,8 @@ export async function getServerSideProps() {
     headers: {
       'Content-Type': 'application/json',
     },
-  })
+  },
+  )
   const data = await res.json()
   const items = data['post']
   // Pass data to the page via props

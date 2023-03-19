@@ -17,7 +17,8 @@ const Pagination = ({ items, pageSize, currentPage, onPageChange }: PagingProp) 
   return (
       <ul style={{width:"100%", textAlign:"center", padding:0}} >
         {pages.map((page) => (
-          <li
+          <button
+            onClick={() => onPageChange(page)}
             key={page}
             className={
               page === currentPage ? styles.pageItemActive : styles.pageItem
@@ -26,7 +27,7 @@ const Pagination = ({ items, pageSize, currentPage, onPageChange }: PagingProp) 
             <a className={styles.pageLink} onClick={() => onPageChange(page)}>
               {page}
             </a>
-          </li>
+          </button>
         ))}
       </ul>
     

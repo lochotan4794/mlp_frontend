@@ -1,0 +1,52 @@
+.Wrapper {
+    position: relative;
+}
+
+.ActivatorButton {
+    align-items: center;
+    background-color: inherit;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    border-color: #ccc;
+    color: inherit;
+    display: flex;
+    font-size: inherit;
+    max-width: 160px;
+    padding: 1em;
+}
+
+.ActivatorButton-after {
+    content: "";
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    height: 0.5em;
+    margin-left: 0.75em;
+    width: 0.5em;
+    transform: rotate(45deg);
+}
+
+.DropdownList {
+    background-color: #ececec;
+    color: black;
+    display: block;
+    margin: 0;
+    min-width: 180px;
+    padding: 0;
+    position: absolute;
+}
+
+.DropdownList i {
+    list-style: none;
+    margin: 0;
+}
+
+
+
+.DropdownList i a:link {
+    display: block;
+    padding: 0.5em;
+}
+
+.DropdownList i a:link:hover {
+    background-color: lightblue;
+}

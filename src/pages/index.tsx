@@ -18,6 +18,9 @@ import React, { useState } from "react";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 const inter = Inter({ subsets: ['latin'] })
 import HlCode from '@/components/Code'
+import LeftPanel from '@/components/Left'
+import RightPanel from '@/components/Right'
+
 
 type IndexProps = {
   all: Post[],
@@ -52,7 +55,8 @@ const IndexPage = ({ all, relative, relevent }: IndexProps) => (
     </pre>
     <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax> */}
 
-    <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} />
+    {/* <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} /> */}
+    <MainLayout middleChild={<List items={all} />} leftChild={<LeftPanel slug={''} path={'posts/'}/>} rightChild={<RightPanel slug={''} path={'posts/'}/>} />
 
   </Layout>
 )

@@ -3,6 +3,7 @@ import ListItem from './ListItem'
 import { Post } from '../interfaces'
 import { GetServerSideProps } from 'next'
 import SideStyles from '../styles/Side.module.css'
+import { useState, useEffect } from "react";
 
 type Props = {
   items: Post[]

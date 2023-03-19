@@ -30,6 +30,7 @@ const CommentForm = ({
   useEffect(() => {
     const user = JSON.parse(JSON.stringify(localStorage.getItem("user")));
     if (user) {
+      console.log(user)
       setActiveUser(user);
     }
   }, []);

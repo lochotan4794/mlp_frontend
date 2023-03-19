@@ -31,11 +31,12 @@ const Comments = ({ comments, currentUserId, slug }) => {
       );
   const addComment = (text, reply_to) => {
     var user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
     createCommentApi(user.email, text, reply_to, slug).then((resp) => {
-      console.log(resp.data);
+      console.log(resp);
       setBackendComments([resp.data[0], ...backendComments]);
       setActiveComment(null);
-    });
+    });}
   };
 
   const updateComment = (text, commentId) => {

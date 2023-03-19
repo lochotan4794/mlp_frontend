@@ -5,11 +5,12 @@ import ListDetail from '../../components/ListDetail'
 import severUrl from '@/utils/api'
 import MainLayout from '@/components/MainLayout'
 import SideStyles from '../../styles/Side.module.css'
-
+import LeftPanel from '@/components/Left'
+import RightPanel from '@/components/Right'
 
 type Props = {
-  item?: Post
-  comments?: Comment[]
+  item: Post
+  comments: Comment[]
   text: Text[]
   citation: Citation[]
   appendix: Appendix[]
@@ -36,21 +37,24 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, erro
       {/* {item && <ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />} */}
       <>
         <div className={SideStyles.main}>
-          <div className={SideStyles.leftSide} style={{
+          {/* <div className={SideStyles.leftSide} style={{
           gridArea: "leftChild",
           gridColumn: "1/7",}}>{all.map((a) => (
             <div className={SideStyles.itemLink} ><a href={"/posts/" + a.slug}>{a.title}</a></div>
-          ))}</div>
+          ))}</div> */}
+          <LeftPanel  slug={item.slug} path={"/posts/"}/>
           <div style={{
             gridArea: "middleChild",
             gridColumn: "7/29",
           }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}</div>
-          <div style={{
+          {/* <div style={{
           gridArea: "rightChild",
           gridColumn: "29/36",}} className={SideStyles.rightSide}>{all.map((a) => (
             <div className={SideStyles.itemLink}><a href={"/posts/" + a.slug}>{a.title}</a></div>
-          ))}</div>
-        </div></>
+          ))}</div> */}
+          <RightPanel slug={''} path={'posts/'} />
+        </div>
+        </>
     </Layout>
   )
 }
@@ -124,7 +128,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const data1 = await res2.json()
     const all = data1['post']
 
-    return { props: { item, comments, text, citation, appendix, all } }
+    return { props: { item, comments, text, citation, appendix, all }, revalidate: 10 }
 
   } catch (err: any) {
     return { props: { errors: err.message } }

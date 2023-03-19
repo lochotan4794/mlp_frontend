@@ -55,8 +55,8 @@ export type Post = {
   relationship: [number]
   video: string
   pdf: string
-  previous_post: [object]
-  next_post: [object]
+  previous_post: ItemLink
+  next_post: ItemLink
   topic: number
   ava: string
 }

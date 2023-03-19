@@ -23,7 +23,7 @@ const Modal = ({ show, onClose, children, title }) => {
             x
           </a>
         </div>
-        {title && <p className={Modalstyles.StyledModalTitle}>{title}</p>}
+        {/* {title && <p className={Modalstyles.StyledModalTitle}>{title}</p>} */}
         <div className={Modalstyles.StyledModalBody}>{children}</div>
       </div>
     </div>

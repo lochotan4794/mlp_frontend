@@ -32,7 +32,8 @@ export default function List({ items }: Props) {
     setCurrentPage(page);
   };
 
-  const paginatedPosts = paginate(items, currentPage, pageSize);
+  const paginatedPosts = items.length < pageSize ? items : paginate(items, currentPage, pageSize);
+
   return (
     <>
       <Pagination
