@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 import severUrl from "@/utils/api";
 
-class RegisterPage extends React.Component {
+class RegisterPage extends React.Component<any, any> {
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
         this.state = {
             user: {
@@ -26,7 +26,7 @@ class RegisterPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange(event: any) {
         const { name, value } = event.target;
         const { user } = this.state;
         this.setState({
@@ -37,7 +37,7 @@ class RegisterPage extends React.Component {
         });
     }
 
-    handleSubmit =  async (event) => {
+    handleSubmit =  async (event: any) => {
         event.preventDefault();
         this.setState({ submitted: true });
         const { user } = this.state;

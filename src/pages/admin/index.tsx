@@ -42,12 +42,12 @@ import Router from 'next/router'
 
 // export default Admin;
 
-const Admin = ({ match }) => {
+const Admin = ({ match }:any) => {
 
   const [slug, setSlug] = useState("")
 
 
-  const updateSlug = (new_slug) => {
+  const updateSlug = (new_slug:any) => {
     setSlug(new_slug)
     // navigate('edit', { state: { slug: new_slug } });
          Router.push({

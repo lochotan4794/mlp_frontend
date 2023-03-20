@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import Modalstyles from '@/styles/Modal.module.css'
 
 
-const Modal = ({ show, onClose, children, title }) => {
+const Modal = ({ show, onClose, children, title }: any) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
     setIsBrowser(true);
   }, []);
 
-  const handleCloseClick = (e) => {
+  const handleCloseClick = (e: any) => {
     e.preventDefault();
     onClose();
   };
@@ -32,7 +32,7 @@ const Modal = ({ show, onClose, children, title }) => {
   if (isBrowser) {
     return ReactDOM.createPortal(
       modalContent,
-      document.getElementById('modal-root')
+      document.getElementById('modal-root') as any
     );
   } else {
     return null;

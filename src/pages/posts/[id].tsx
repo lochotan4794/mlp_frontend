@@ -10,7 +10,7 @@ import RightPanel from '@/components/Right'
 
 type Props = {
   item: Post
-  comments: Comment[]
+  comments: any[]
   text: Text[]
   citation: Citation[]
   appendix: Appendix[]

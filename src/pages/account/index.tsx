@@ -18,7 +18,7 @@ export default function SettingPage() {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [is_admin, setAdmin] = useState(false)
-    const [email, setEmail] = useState(null)
+    const [email, setEmail] = useState("")
     const [email_accept, setEmailAccept] = useState(false)
     const [email_authenticated, setAuthenticated] = useState(false)
     const [ isShowing, setIsShowing ] = useState(false)
@@ -27,7 +27,7 @@ export default function SettingPage() {
 
 
     useEffect(() => {
-        const local = localStorage.getItem("user", false);
+        const local = localStorage.getItem("user");
         console.log(local)
         if (local && (local !== "undefined")) {
             const user_local = JSON.parse(local);
@@ -61,7 +61,7 @@ export default function SettingPage() {
                 });}
     }, []);
 
-    const saveChange = (e) => {
+    const saveChange = (e: any) => {
         console.log(email)
         // e.preventDefault();
         setIsShowing(true)
@@ -71,7 +71,7 @@ export default function SettingPage() {
         bodyFormData.append("email", email);
         bodyFormData.append("first_name", firstName);
         bodyFormData.append("last_name", lastName);
-        bodyFormData.append("accept_email", email_accept);
+        bodyFormData.append("accept_email", String(email_accept));
         console.log(firstName)
         axios
             .post(severUrl + `users/edit_user`, bodyFormData)
@@ -88,41 +88,41 @@ export default function SettingPage() {
     }
 
     const toAdmin = () => {
-        sessionStorage.setItem("admin", true)
+        sessionStorage.setItem("admin", "true")
         window.location.href = "admin/searchpost"
     }
 
-    const handleLogout = (e) => {
+    const handleLogout = (e: any) => {
         localStorage.removeItem("user");
-        window.location = "/";
+        window.location.href = "/";
     };
 
-    const update_first_name = (e) => {
+    const update_first_name = (e: any) => {
         setFirstName(e.target.value)
         console.log(e.target.value)
     }
 
-    const update_last_name = (e) => {
+    const update_last_name = (e:any) => {
         setLastName(e.target.value)
         console.log(e.target.value)
     }
 
-    const update_email = (e) => {
+    const update_email = (e: any) => {
         setEmail(e.target.value)
         console.log(e.target.value)
     }
 
-    const update_password = (e) => {
+    const update_password = (e:any) => {
         setPassword(e.target.value)
         console.log(e.target.value)
     }
 
-    const update_username = (e) => {
+    const update_username = (e:any) => {
         setUsername(e.target.value)
         console.log(e.target.value)
     }
 
-    const update_email_accept = (e) =>{
+    const update_email_accept = (e:any) =>{
         console.log(e.target.value)
         setEmailAccept(e.target.value)
     }

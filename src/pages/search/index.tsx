@@ -28,7 +28,7 @@ function Searchpage() {
     //   console.log(response.data);
     setLoading(true)
     const query = router.query
-    const localkey = localStorage.getItem("keysearch", null)
+    const localkey = localStorage.getItem("keysearch")
     var key = null
     if (localkey == null) {
       key = String(query['keyword'])

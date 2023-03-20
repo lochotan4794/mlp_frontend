@@ -4,18 +4,26 @@ import Tabs from '@/components/Tabs'
 import Tab from '@/components/Tab'
 import RegisterPage from '@/components/Register'
 import LoginForm from '@/components/Login'
-
+type User = {
+  username: string
+}
 
 export default function UseModal() {
     const [showModal, setShowModal] = useState(false);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<User>();
 
     useEffect(() => {
-      const user = localStorage.getItem("user", false);
+      const user:any = localStorage.getItem("user");
       if (user && user !== "undefined") {
         setUser(JSON.parse(user));
       }
     }, []);
+
+    // function toggle(index) {
+    //   setIsShowing(!isShowing);
+    //   setShowIndex(index);
+    //   // console.log(index);
+    // }
 
     return (
         <div>
@@ -30,7 +38,7 @@ export default function UseModal() {
                       backgroundColor: "transparent",
                       paddingRight: "2px",
                     }}
-                    onClick={() => toggle("Login")}
+                    // onClick={() => toggle("Login")}
                   >
                     Login |
                   </button>
@@ -42,7 +50,7 @@ export default function UseModal() {
                       backgroundColor: "transparent",
                       paddingLeft: "0",
                     }}
-                    onClick={() => toggle("SignUp")}
+                    // onClick={() => toggle("SignUp")}
                   >
                     SignUp
                   </button>
@@ -79,10 +87,10 @@ export default function UseModal() {
                 show={showModal}
             >
                 <> <Tabs showIndex={0}>
-                    <div label="Login" style={{ fontWeight: "bold" }}>
-                        <LoginForm />
+                    <div style={{ fontWeight: "bold" }}>
+                        <LoginForm registering={false}/>
                     </div>
-                    <div label="SignUp" style={{ fontWeight: "bold" }}>
+                    <div style={{ fontWeight: "bold" }}>
                         <RegisterPage cus_style={{ width: "100%" }} />
                     </div>
                 </Tabs></>

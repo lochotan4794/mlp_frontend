@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import severUrl from "@/utils/api";
 import SideStyles from '../styles/Side.module.css'
+import { Post } from "@/interfaces";
 
 // class RightPanel extends React.Component {
 //     state = {
@@ -155,7 +156,7 @@ export default function RightPanel({ slug, path }: Props) {
                     Relevent
                 </h4>
                 <span className="brmedium"></span>
-                {Array.from(post).map((p) => (
+                {Array.from(post).map((p: Post) => (
                     <>
                         <div className={SideStyles.itemLink}>
 

@@ -18,22 +18,22 @@ const EditPost = () => {
   const location = useRouter();
   const [content, setContent] = useState([])
   const [pdf, setPdf] = useState(null)
-  const [video, setVideo] = useState(null)
+  const [video, setVideo] = useState<any |null>(null)
   const [created_on, setCreated_on] = useState(null)
   const [title, setTitle] = useState("")
   const [views, setViews] = useState()
-  const [lang, setLang] = useState("")
+  const [lang, setLang] = useState<any>(0)
   const [eng_ver, setEng_ver] = useState()
   const [appendix, setAppendix] = useState([])
   const [text, setText] = useState([])
   const [citation, setCitation] = useState([])
   const [styles, setStyles] = useState([])
-  const [abstract, setAbstract] = useState("")
-  const [status, setStatus] = useState("")
-  const [thumnail, setThumnail] = useState(null)
-  const [tag, setTag] = useState([])
-  const [newTag, setNewTag] = useState()
-  const [slug, setSlug] = useState("")
+  const [abstract, setAbstract] = useState<any | null>("")
+  const [status, setStatus] = useState<any | null>("")
+  const [thumnail, setThumnail] = useState<Blob | null>(null)
+  const [tag, setTag] = useState<any[]>([])
+  const [newTag, setNewTag] = useState<any | null>()
+  const [slug, setSlug] = useState<any | null>("")
   const [nPost, setNPost] = useState(null)
   const [pPost, setPPost] = useState(null)
   // const navigate = useNavigate();
@@ -41,10 +41,10 @@ const EditPost = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [nextIsOpen, setNextIsOpen] = useState(false);
   const [preIsOpen, setPreIsOpen] = useState(false);
-  const [nextSlug, setNextSlug] = useState(null)
-  const [preSlug, setPreSlug] = useState(null)
-  const [topic, setTopic] = useState(null)
-  const [ava, setAva] = useState(null)
+  const [nextSlug, setNextSlug] = useState<any | null>(null)
+  const [preSlug, setPreSlug] = useState<any | null>(null)
+  const [topic, setTopic] = useState<any | null>(0)
+  const [ava, setAva] = useState<any | null>(null)
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -61,7 +61,7 @@ const EditPost = () => {
   }
 
   useEffect(() => {
-    setSlug(location.query['slug'])
+    setSlug(location.query['slug'] as string)
     fetch(severUrl + `blog/${location.query['slug']}/`, {
       method: "GET",
     })
@@ -99,7 +99,7 @@ const EditPost = () => {
       });
   }, [])
 
-  const _onEdit = (type, id, action) => {
+  const _onEdit = ({type, id, action}: any) => {
     adminApi(type, id, action).then((resp) => {
       console.log(resp)
     });
@@ -132,7 +132,7 @@ const EditPost = () => {
     } else {
       console.log(pdf)
       adminSave(title, abstract, status, eng_ver, thumnail, tag, slug, video, pdf, topic, ava).then((resp) => {
-        setSlug(resp.data.slug)
+        setSlug(resp?.data.slug)
       });
     }
   }
@@ -142,9 +142,9 @@ const EditPost = () => {
     setTag([...tag, newItem])
   }
 
-  const removeTag = (e) => {
+  const removeTag = (e: any) => {
     adminRemoveTag(e, slug).then((resp) => {
-      const data = resp.data
+      const data = resp?.data
       const tag_title = []
       for (let j = 0; j < data.length; j++) {
           tag_title.push(data[j].title);
@@ -159,7 +159,7 @@ const EditPost = () => {
     });
   }
 
-  const handlePDFChange = (e) => {
+  const handlePDFChange = (e: any) => {
     console.log("Change")
     console.log(e.target.files)
     setPdf(e.target.files[0])
@@ -171,7 +171,7 @@ const EditPost = () => {
     });
   }
 
-  const searchPost = (key) => {
+  const searchPost = (key: any) => {
     var bodyFormData = new FormData();
     bodyFormData.append("key", key);
     axios.post(
@@ -181,7 +181,7 @@ const EditPost = () => {
         headers: {
           'accept': 'application/json',
           'Accept-Language': 'en-US,en;q=0.8',
-          'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
+          'Content-Type': `multipart/form-data;`,
         }
       }
     ).then((response) => response.data)
@@ -254,7 +254,7 @@ const EditPost = () => {
               }}
             ></span>
       <p>Choose topic</p>
-      <select style={{ height: "fit-content" }} value={topic} onChange={(e) => setTopic(e.target.value)}>
+      <select style={{ height: "fit-content" }} value={topic? topic : 0} onChange={(e) => setTopic(e.target.value)}>
                   <option selected={topic == 0} value={0}>ML</option>
                   <option selected={topic == 1} value={1}>NLP</option>
                   <option selected={topic == 2} value={2}>SPEECH</option>
@@ -281,7 +281,7 @@ const EditPost = () => {
           <input type="text" placeholder="video" value={video} onChange={(e) => setVideo(e.target.value)} /></div>
         <div>
           <p>PDF file</p>
-          <input type="file" accept="application/pdf,application/vnd.ms-excel" class="fileinput" onChange={(event) => handlePDFChange(event)} /></div></div>
+          <input type="file" accept="application/pdf,application/vnd.ms-excel" className="fileinput" onChange={(event) => handlePDFChange(event)} /></div></div>
           <span
               style={{
                 marginTop: "20px",
@@ -352,7 +352,7 @@ const EditPost = () => {
         // name="myImage"
         accept="image/jpeg,image/png,image/gif"
         onChange={(event) => {
-          setThumnail(event.target.files[0])
+          setThumnail(event.target.files? event.target.files[0]: null)
         }} />
         <input type="text" placeholder="Set ava url" onChange={(event) => {
           setAva(event.target.value)
@@ -392,7 +392,7 @@ const EditPost = () => {
         <AppendixObject slug={slug} text={text} indentLevel={indentLevel} link={link} id={id} update={updateAppendix} data={appendix} fe_id={fe_id} first={false} />
       ))}
       {(Array.from(appendix).length == 0) && <AppendixObject slug={slug} text={"Add"} indentLevel={"0"} link={"add link"} id={"Invalid"} update={updateAppendix} data={appendix} fe_id={"not valid"} first={true} />}</div>
-    <span class="br"></span>
+    <span className="br"></span>
     <div style={{ padding: "10px", border: "1px solid grey" }}>
       {Array.from(text).map(
         ({
@@ -430,7 +430,7 @@ const EditPost = () => {
         first={true}
       />}
     </div>
-    <span class="br"></span>
+    <span className="br"></span>
     <div style={{ padding: "10px", border: "1px solid grey" }}>
       {Array.from(citation).map(({ text, id }, fe_id) => (
         <CitationObject slug={slug} text={text} id={id} update={updateCitation} data={citation} fe_id={fe_id} first={false} />

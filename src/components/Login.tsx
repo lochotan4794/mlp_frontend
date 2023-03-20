@@ -34,8 +34,9 @@ class LoginForm extends React.Component<props, state> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    const { name, value } = event.target;
+  handleChange(event?: any) {
+    const element = event?.target as HTMLInputElement
+    const { name, value } = element;
     const { user } = this.state;
     this.setState({
       user: {
@@ -45,8 +46,8 @@ class LoginForm extends React.Component<props, state> {
     });
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
+  handleSubmit = async (e?: any) => {
+    e?.preventDefault();
     this.setState({ submitted: true });
     const { user } = this.state;
     if (user.username && user.password) {
@@ -63,16 +64,16 @@ class LoginForm extends React.Component<props, state> {
           localStorage.setItem("user", JSON.stringify(response.data));
           window.location.reload();
         }
-      } catch (err) {
+      } catch (err: any) {
         console.log(err.response.data)
         this.setState({ errorMsg: err.response.data.message })
       }
     }
   }
 
-  _handleKeyPress(e) {
+  _handleKeyPress(e: any) {
     if (e.key === "Enter") {
-      this.handleSubmit(e)
+      this.handleSubmit()
     }
   }
 

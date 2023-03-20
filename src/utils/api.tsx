@@ -100,7 +100,7 @@ export const adminDeletePost = async (slug: string) => {
   }
 };
 
-export const adminSetNext = async (slug: string, nextSlug: string) => {
+export const adminSetNext = async (slug: any, nextSlug: any) => {
   try {
     var bodyFormData = new FormData();
     bodyFormData.append("slug", slug);
@@ -115,7 +115,7 @@ export const adminSetNext = async (slug: string, nextSlug: string) => {
   }
 };
 
-export const adminSetPre = async (slug: string, preSlug: string) => {
+export const adminSetPre = async (slug: any, preSlug: any) => {
   try {
     var bodyFormData = new FormData();
     bodyFormData.append("slug", slug);
@@ -142,7 +142,7 @@ export const removeTag = async (tag: string, post: string) => {
         headers: {
           'accept': 'application/json',
           'Accept-Language': 'en-US,en;q=0.8',
-          'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
+          'Content-Type': `multipart/form-data;`,
         }
       }
     );
@@ -152,7 +152,7 @@ export const removeTag = async (tag: string, post: string) => {
   }
 }
 
-export const adminSave = async (title: string, abstract: string, status: string, eng_ver: string, thumnail: Blob, tag: string, slug: string, video=null, pdf=null, topic=null, ava=null) => {
+export const adminSave = async (title: string, abstract: string, status: string, eng_ver: any, thumnail: any, tag: any, slug: any, video=null, pdf=null, topic:any, ava=null) => {
   try {
     var bodyFormData = new FormData();
     if (title) {
@@ -174,8 +174,8 @@ export const adminSave = async (title: string, abstract: string, status: string,
       bodyFormData.append("slug", slug);
     }
 
-    if (thumnail instanceof Blob) {
-      bodyFormData.append("thumnail", thumnail, thumnail.filename);
+    if (thumnail instanceof File) {
+      bodyFormData.append("thumnail", thumnail);
     }
 
     if (ava) {
@@ -188,7 +188,7 @@ export const adminSave = async (title: string, abstract: string, status: string,
 
 
     if (pdf) {
-      bodyFormData.append("pdf", pdf, pdf.name)
+      bodyFormData.append("pdf", pdf)
     }
     console.log(pdf)
 
@@ -242,7 +242,7 @@ export const adminRemoveTag = async (tag: string, slug: string) => {
   }
 };
 
-export const adminApi = async (type: string, id: string, action = "none", data: any ) => {
+export const adminApi = async (type: string, id: string, action = "none", data?: any ) => {
   // console.log("THIS IS MY DATA")
   // console.log(data)
   if (action == 'update') {
@@ -266,7 +266,7 @@ export const adminApi = async (type: string, id: string, action = "none", data: 
             headers: {
               'accept': 'application/json',
               'Accept-Language': 'en-US,en;q=0.8',
-              'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
+              'Content-Type': `multipart/form-data;`,
             }
           }
         );
@@ -320,7 +320,7 @@ export const adminApi = async (type: string, id: string, action = "none", data: 
             headers: {
               // 'accept': 'application/json',
               // 'Accept-Language': 'en-US,en;q=0.8',
-              'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
+              'Content-Type': `multipart/form-data;`,
             }
           }
         );
@@ -387,7 +387,7 @@ export const adminApi = async (type: string, id: string, action = "none", data: 
             headers: {
               'accept': 'application/json',
               'Accept-Language': 'en-US,en;q=0.8',
-              'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
+              'Content-Type': `multipart/form-data`,
             }
           }
         );

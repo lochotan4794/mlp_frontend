@@ -12,7 +12,7 @@ export function Header() {
     setMenuDropDownOpen(false);
   };
 
-  useOnHoverOutside(dropdownRef, closeHoverMenu); // Call the hook
+  useOnHoverOutside({dropdownRef, closeHoverMenu}); // Call the hook
 
   return (
     <div className="flex justify-center header">

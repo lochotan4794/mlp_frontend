@@ -80,7 +80,7 @@ const MENU_LIST = [
 // export default Navbar;
 
 
-class Navbar extends React.Component {
+class Navbar extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
