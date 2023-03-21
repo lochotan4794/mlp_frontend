@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // const severUrl = "https://backend-env-dev.us-east-1.elasticbeanstalk.com/";
-const severUrl = "http://127.0.0.1:8000/";
-//const severUrl = "https://blog.centralglobalbackend.de/";
+//const severUrl = "http://127.0.0.1:8000/";
+const severUrl = "https://blog.centralglobalbackend.de/";
 import { Post } from "@/interfaces";
 
 export const getStories = async () => {

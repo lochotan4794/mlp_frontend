@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function useOnHoverOutside ({ref, handler}: any)  {
   useEffect(
     () => {
       const listener = (event: any) => {
-        if (!ref.current || ref.current.contains(event.target)) {
+        if (!ref?.current || ref?.current?.contains(event.target)) {
           return;
         }
         handler(event);
