@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Modal from "../modal/Modal";
-import useModal from "../modal/useModal";
+import Modal from "../Modal/Modal";
+import useModal from "../Modal/useModal";
 import axios from "axios";
 import severUrl from "@/utils/api";
 
@@ -11,17 +11,17 @@ const CommentForm = ({
   hasCancelButton = false,
   handleCancel,
   initialText = "",
-}) => {
+}:any) => {
   const [text, setText] = useState(initialText);
   const [activeUser, setActiveUser] = useState(null);
   const { isShowing, toggle, showIndex } = useModal();
   const [registerUser, setRegisterUser] = useState(null);
-  const [registerPassword, setRegisterPassword] = useState(null);
-  const [registerEmail, setRegisterEmail] = useState(null);
+  const [registerPassword, setRegisterPassword] = useState<any | null>(null);
+  const [registerEmail, setRegisterEmail] = useState<any | null>(null);
   const [filled, setFilled] = useState(false);
 
   const isTextareaDisabled = text.length === 0;
-  const onSubmit = (event) => {
+  const onSubmit = (event:any) => {
     event.preventDefault();
     handleSubmit(text);
     setText("");
@@ -35,7 +35,7 @@ const CommentForm = ({
     }
   }, []);
 
-  const handleNext = (event) => {
+  const handleNext = (event:any) => {
     if (registerEmail !== null && registerPassword !== null) {
       var bodyFormData = new FormData();
       bodyFormData.append("email", registerEmail);
@@ -72,12 +72,12 @@ const CommentForm = ({
     }
   };
 
-  function handleEmailChange(event) {
+  function handleEmailChange(event:any) {
     const { name, value } = event.target;
     setRegisterEmail(value);
   }
 
-  function handlePasswordChange(event) {
+  function handlePasswordChange(event:any) {
     const { name, value } = event.target;
     console.log(value);
     setRegisterPassword(value);
@@ -92,7 +92,9 @@ const CommentForm = ({
           style={{ paddingBottom: "1%" }}
         >
           <textarea
-            style={{ cols: "50", rows: "10", maxlength: "65525" }}
+           cols={50}
+           rows={10}
+           maxLength={65525}
             className="comment-form-textarea"
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -127,7 +129,7 @@ const CommentForm = ({
         </form>
         {!activeUser && (
           <div
-            class="form-style-6"
+            className="form-style-6"
             style={{ justifyContent: "end", padding: 0, margin: "10px 0" }}
           >
             <input

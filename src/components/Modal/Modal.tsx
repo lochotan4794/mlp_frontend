@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 // import { RegisterPage } from "../Home/RegisterPage";
 // import { LoginForm } from "../Home/LoginForm";
 
-const Modal = ({ isShowing, hide, activeTab }) =>
+const Modal = ({ isShowing, hide, activeTab }:any) =>
   isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>

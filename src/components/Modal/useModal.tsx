@@ -4,7 +4,7 @@ const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
   const [showIndex, setShowIndex] = useState("Login");
 
-  function toggle(index) {
+  function toggle(index:any) {
     setIsShowing(!isShowing);
     setShowIndex(index);
     // console.log(index);

@@ -13,7 +13,7 @@ const Comment = ({
   parentId = null,
   currentUserId,
   childs = null,
-}) => {
+}:any) => {
   const isEditing =
     activeComment &&
     activeComment.id === comment.id &&
@@ -23,7 +23,7 @@ const Comment = ({
     activeComment.id === comment.id &&
     activeComment.type === "replying";
   const fiveMinutes = 300000;
-  const timePassed = new Date() - new Date(comment.created) > fiveMinutes;
+  const timePassed = new Date().valueOf() - new Date(comment.created).valueOf() > fiveMinutes;
   const canDelete =
     currentUserId === comment.name && replies.length === 0 && !timePassed;
   const canReply = Boolean("1");
@@ -33,7 +33,7 @@ const Comment = ({
   const childComments = childs ? childs : replies;
 
   const rootReplies = replies.filter(
-    (replie) => replie.reply_to === comment.id
+    (replie:any) => replie.reply_to === comment.id
   );
 
   // useEffect(() => {
@@ -43,11 +43,11 @@ const Comment = ({
   //   console.log(childComments);
   // }, []);
 
-  const getReplies = (commentId) =>
+  const getReplies = (commentId: any) =>
     childComments
-      .filter((childComment) => childComment.reply_to === commentId)
+      .filter((childComment:any) => childComment.reply_to === commentId)
       .sort(
-        (a, b) => new Date(a.created).getTime() - new Date(b.created).getTime()
+        (a:any, b:any) => new Date(a.created).getTime() - new Date(b.created).getTime()
       );
 
   return (
@@ -66,7 +66,7 @@ const Comment = ({
             submitLabel="Update"
             hasCancelButton
             initialText={comment.body}
-            handleSubmit={(text) => updateComment(text, comment.id)}
+            handleSubmit={(text: string) => updateComment(text, comment.id)}
             handleCancel={() => {
               setActiveComment(null);
             }}
@@ -105,12 +105,12 @@ const Comment = ({
         {isReplying && (
           <CommentForm
             submitLabel="Reply"
-            handleSubmit={(text) => addComment(text, replyId)}
+            handleSubmit={(text: string) => addComment(text, replyId)}
           />
         )}
         {replies.length > 0 && (
           <div className="comments-container">
-            {rootReplies.map((reply) => (
+            {rootReplies.map((reply: any) => (
               <Comment
                 comment={reply}
                 key={reply.id}
