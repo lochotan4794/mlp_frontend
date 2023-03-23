@@ -7,6 +7,8 @@ import MainLayout from '@/components/MainLayout'
 import SideStyles from '../../styles/Side.module.css'
 import LeftPanel from '@/components/Left'
 import RightPanel from '@/components/Right'
+import { useRouter } from 'next/router'
+
 
 type Props = {
   item: Post
@@ -19,6 +21,19 @@ type Props = {
 }
 
 const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, errors }: Props) => {
+
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return (
+      <Layout title="Error | Next.js + TypeScript Example">
+        <p>
+          <span style={{ color: 'red' }}>Error:</span> {errors}
+        </p>
+      </Layout>
+    )
+  }
+
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
