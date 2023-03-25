@@ -17,8 +17,8 @@ const ListDetail = ({ post, comments, text, citation, appendix }: ListDetailProp
   <>
     <div>
       <div>
-        {post.previous_post && <a href={"/posts" + post.previous_post.slug}>{post.previous_post.title}</a>}
-        {post.next_post && <a href={"/posts" + post.next_post.slug}>{post.next_post.title}</a>}
+        {post.previous_post && <a href={"/post" + post.previous_post.slug}>{post.previous_post.title}</a>}
+        {post.next_post && <a href={"/post" + post.next_post.slug}>{post.next_post.title}</a>}
       </div>
       <h1>{post.title}</h1>
       <div>

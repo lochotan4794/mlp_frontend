@@ -11,7 +11,7 @@ type Props = {
 
 const ListItem = ({ data }: Props) => (
 
-  <Link className={SideStyles.itemDescription} href="/posts/[id]" as={`/posts/${data.slug}`}>
+  <Link className={SideStyles.itemDescription} href="/post/[id]" as={`/post/${data.slug}`}>
     <>
       <div className={ListStyles.item}>
         <img className={ListStyles.itemImg} src={data.ava} />
