@@ -82,6 +82,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //   params: { id: user.id.toString() },
   // }))
 
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+
   const res = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
     method: 'POST',
     headers: {
