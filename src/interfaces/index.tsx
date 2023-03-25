@@ -5,7 +5,7 @@
 // import { User } from 'path/to/interfaces';
 
 export type User = {
-    id: number
+    id: string
     name: string
 }
 
