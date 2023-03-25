@@ -36,15 +36,26 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, errors }:
       title={`${item ? item.title : 'User Detail \(\frac{1}{n}\)'
         } | Next.js + TypeScript Example`}
     >
+      {/* {item && <ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />} */}
       <>
-        {/* <div className={SideStyles.main}>
+        <div className={SideStyles.main}>
+          {/* <div className={SideStyles.leftSide} style={{
+          gridArea: "leftChild",
+          gridColumn: "1/7",}}>{all.map((a) => (
+            <div className={SideStyles.itemLink} ><a href={"/posts/" + a.slug}>{a.title}</a></div>
+          ))}</div> */}
           <LeftPanel  slug={item.slug} path={"/posts/"}/>
           <div style={{
             gridArea: "middleChild",
             gridColumn: "7/29",
           }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}</div>
+          {/* <div style={{
+          gridArea: "rightChild",
+          gridColumn: "29/36",}} className={SideStyles.rightSide}>{all.map((a) => (
+            <div className={SideStyles.itemLink}><a href={"/posts/" + a.slug}>{a.title}</a></div>
+          ))}</div> */}
           <RightPanel slug={''} path={'posts/'} />
-        </div> */}
+        </div>
         </>
     </Layout>
   )
