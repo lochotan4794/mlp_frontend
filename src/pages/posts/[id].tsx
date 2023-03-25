@@ -16,11 +16,10 @@ type Props = {
   text: Text[]
   citation: Citation[]
   appendix: Appendix[]
-  all: Post[]
   errors?: string
 }
 
-const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, errors }: Props) => {
+const StaticPropsDetail = ({ item, comments, text, citation, appendix, errors }: Props) => {
 
   const router = useRouter()
 
@@ -139,18 +138,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     })
 
     const comments = await res1.json()
-    console.log(comments)
 
-    const res2 = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    const data1 = await res2.json()
-    const all = data1['post']
-
-    return { props: { item, comments, text, citation, appendix, all }, revalidate: 10 }
+    return { props: { item, comments, text, citation, appendix }, revalidate: 10 }
 
   } catch (err: any) {
     return { props: { errors: err.message } }
