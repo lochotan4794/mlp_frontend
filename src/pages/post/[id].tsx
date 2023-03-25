@@ -35,13 +35,13 @@ const StaticPropsDetail = ({ item, comments, appendix, citation, text, errors }:
       } | Next.js + TypeScript Example`}
     >
         <div className={SideStyles.main}>
-          <LeftPanel  slug={item?.slug} path={"/posts/"}/>
+          <LeftPanel  slug={item?.slug} path={"post/"}/>
           <div style={{
             gridArea: "middleChild",
             gridColumn: "7/29",
           }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}
           </div>
-          <RightPanel slug={''} path={'posts/'} />
+          <RightPanel slug={''} path={"post/"} />
         </div>
     </Layout>
   )
