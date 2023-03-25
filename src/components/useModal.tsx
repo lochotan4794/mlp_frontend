@@ -10,6 +10,8 @@ type User = {
 
 export default function UseModal() {
     const [showModal, setShowModal] = useState(false);
+    const [index, setShowIndex] = useState(0);
+
     const [user, setUser] = useState<User>();
 
     useEffect(() => {
@@ -19,11 +21,11 @@ export default function UseModal() {
       }
     }, []);
 
-    // function toggle(index) {
-    //   setIsShowing(!isShowing);
-    //   setShowIndex(index);
-    //   // console.log(index);
-    // }
+    function toggle(index: any) {
+      setShowModal(!showModal);
+      setShowIndex(index);
+      // console.log(index);
+    }
 
     return (
         <div>
@@ -38,7 +40,7 @@ export default function UseModal() {
                       backgroundColor: "transparent",
                       paddingRight: "2px",
                     }}
-                    // onClick={() => toggle("Login")}
+                    onClick={() => toggle("Login")}
                   >
                     Login |
                   </button>
@@ -50,7 +52,7 @@ export default function UseModal() {
                       backgroundColor: "transparent",
                       paddingLeft: "0",
                     }}
-                    // onClick={() => toggle("SignUp")}
+                    onClick={() => toggle("Sign Up")}
                   >
                     SignUp
                   </button>
@@ -86,11 +88,11 @@ export default function UseModal() {
                 onClose={() => setShowModal(false)}
                 show={showModal}
             >
-                <> <Tabs showIndex={0}>
-                    <div style={{ fontWeight: "bold" }}>
+                <> <Tabs showIndex={index}>
+                    <div id="Login" style={{ fontWeight: "bold" }}>
                         <LoginForm registering={false}/>
                     </div>
-                    <div style={{ fontWeight: "bold" }}>
+                    <div id="Sign Up" style={{ fontWeight: "bold" }}>
                         <RegisterPage cus_style={{ width: "100%" }} />
                     </div>
                 </Tabs></>

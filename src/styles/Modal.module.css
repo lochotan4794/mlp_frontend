@@ -1,5 +1,7 @@
 .StyledModalBody {
   padding-top: 10px;
+  height: fit-content;
+  min-height: 100px !important;
 }
 
 .StyledModalHeader {

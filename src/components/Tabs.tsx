@@ -2,16 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import Tab from "./Tab";
 
+const Label = {
+  "0": "Login",
+  "1": "Sign Up"
+}
+
 class Tabs extends React.Component<any, any> {
-  static propTypes = {
-    children: PropTypes.instanceOf(Array).isRequired,
-  };
+  // static propTypes = {
+  //   children: PropTypes.instanceOf(Array).isRequired,
+  // };
 
   constructor(props: any) {
     super(props);
     console.log(this.props);
     this.state = {
-      // activeTab: this.props.children[0].props.label,
+      // activeTab: this.props.children[0].props.id,
       activeTab: this.props.showIndex,
     };
   }
@@ -36,13 +41,13 @@ class Tabs extends React.Component<any, any> {
       <div className="tabs">
         <ol className="tab-list">
           {children.map((child: any) => {
-            const { label } = child.props;
+            const { id } = child.props;
 
             return (
               <Tab
                 activeTab={activeTab}
-                key={label}
-                label={label}
+                key={id}
+                label={id}
                 onClick={onClickTabItem}
               />
             );
@@ -50,7 +55,7 @@ class Tabs extends React.Component<any, any> {
         </ol>
         <div className="tab-content">
           {children.map((child: any) => {
-            if (child.props.label !== activeTab) return undefined;
+            if (child.props.id !== activeTab) return undefined;
             return child.props.children;
           })}
         </div>

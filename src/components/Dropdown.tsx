@@ -1,10 +1,11 @@
 // import logo from "./../logo.svg";
-import { useState, useRef } from "react";
+import React from "react";
+import { useState, useRef, useEffect } from "react";
 import { useOnHoverOutside } from "./useOnHoverOutside";
 import Menu from "./menu";
 
 export function Header() {
-  const dropdownRef = useRef(null); // Create a reference for dropdown container
+  const dropdownRef = useRef<HTMLInputElement>(null);
   const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
 
   // Function to close dropdown
@@ -12,7 +13,22 @@ export function Header() {
     setMenuDropDownOpen(false);
   };
 
-  useOnHoverOutside({dropdownRef, closeHoverMenu}); // Call the hook
+  useEffect(
+    () => {
+      const listener = (event: any) => {
+        if (!dropdownRef?.current || dropdownRef?.current?.contains(event.target)) {
+          console.log("NULL");
+          return;
+        }
+        closeHoverMenu();
+      };
+      document.addEventListener("mouseover", listener);
+      return () => {
+        document.removeEventListener("mouseout", listener);
+      };
+    },
+    [dropdownRef, closeHoverMenu]
+  );
 
   return (
     <div className="flex justify-center header">

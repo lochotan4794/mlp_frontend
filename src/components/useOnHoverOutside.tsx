@@ -5,6 +5,7 @@ export function useOnHoverOutside ({ref, handler}: any)  {
     () => {
       const listener = (event: any) => {
         if (!ref?.current || ref?.current?.contains(event.target)) {
+          console.log("NULL");
           return;
         }
         handler(event);

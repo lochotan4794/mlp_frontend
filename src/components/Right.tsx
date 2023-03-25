@@ -146,7 +146,7 @@ export default function RightPanel({ slug, path }: Props) {
                         </p>
                         <a
                             style={{ fontSize: "14px", textAlign: "justify" }}
-                            href="/about-me"
+                            href="/about"
                         >
                             {`More about me >>`}
                         </a>
