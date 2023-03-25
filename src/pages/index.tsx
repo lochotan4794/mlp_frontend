@@ -9,7 +9,6 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import MainLayout from '@/components/MainLayout'
-import HomePage from './posts'
 import { ItemLink, Post } from '@/interfaces'
 import List from '@/components/List'
 import LeftSide from '@/components/LeftSide'
@@ -56,7 +55,7 @@ const IndexPage = ({ all, relative, relevent }: IndexProps) => (
     <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax> */}
 
     {/* <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} /> */}
-    <MainLayout middleChild={<List items={all} />} leftChild={<LeftPanel slug={''} path={'posts/'}/>} rightChild={<RightPanel slug={''} path={'posts/'}/>} />
+    <MainLayout middleChild={<List items={all} />} leftChild={<LeftPanel slug={''} path={'post/'}/>} rightChild={<RightPanel slug={''} path={'post/'}/>} />
 
   </Layout>
 )
