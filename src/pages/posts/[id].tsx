@@ -76,7 +76,7 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, all, erro
 
 export default StaticPropsDetail
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function getStaticPaths() {
   // Get the paths we want to pre-render based on users
   // const paths = sampleUserData.map((user) => ({
   //   params: { id: user.id.toString() },
@@ -110,7 +110,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // This function gets called at build time on server-side.
 // It won't be called on client-side, so you can even do
 // direct database queries.
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export async function getStaticProps({ params }:any) {
   try {
     console.log("vao day")
     const slug = params?.id
