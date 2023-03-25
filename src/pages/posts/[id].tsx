@@ -13,9 +13,9 @@ import { useRouter } from 'next/router'
 type Props = {
   item: Post
   comments?: any[]
-  text: Text[]
-  citation: Citation[]
-  appendix: Appendix[]
+  text?: Text[]
+  citation?: Citation[]
+  appendix?: Appendix[]
   errors?: string
 }
 
@@ -37,14 +37,15 @@ const StaticPropsDetail = ({ item, comments, text, citation, appendix, errors }:
         } | Next.js + TypeScript Example`}
     >
       <>
-        {/* <div className={SideStyles.main}>
+        <div className={SideStyles.main}>
           <LeftPanel  slug={item.slug} path={"/posts/"}/>
           <div style={{
             gridArea: "middleChild",
             gridColumn: "7/29",
-          }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}</div>
+          }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}
+          </div>
           <RightPanel slug={''} path={'posts/'} />
-        </div> */}
+        </div>
         </>
     </Layout>
   )
@@ -58,12 +59,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //   params: { id: user.id.toString() },
   // }))
 
-  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
-    return {
-      paths: [],
-      fallback: 'blocking',
-    }
-  }
+  // if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+  //   return {
+  //     paths: [],
+  //     fallback: 'blocking',
+  //   }
+  // }
 
   const res = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
     method: 'POST',
@@ -101,10 +102,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // const item = sampleUserData.find((data) => data.id === Number(id))
     console.log(res)
     const data = await res.json()
-    const item = data['post']
-    const appendix = data['appendix']
-    const citation = data['citation']
-    const text = data['text']
+    const item = await data['post']
+    const appendix = await data['appendix']
+    const citation = await data['citation']
+    const text = await data['text']
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
     const res1 = await fetch(severUrl + "blog/" + slug + "/comments/", {

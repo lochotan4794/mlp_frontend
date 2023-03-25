@@ -7,9 +7,9 @@ import { MathJax, MathJaxContext } from "better-react-mathjax";
 type ListDetailProps = {
   post: Post
   comments?: Comment[]
-  text: Text[]
-  citation: Citation[]
-  appendix: Appendix[]
+  text?: Text[]
+  citation?: Citation[]
+  appendix?: Appendix[]
   errors?: string
 }
 
@@ -28,13 +28,13 @@ const ListDetail = ({ post, comments, text, citation, appendix }: ListDetailProp
         {post.pdf && <button>{'pdf'}</button>}
       </div>
       <p>{post.abstract}</p>
-      {appendix.map((app) => (
+      {appendix?.map((app) => (
         <>
           <p>{app.text}</p>
         </>
       ))}
 
-      {text.map((txt) => (
+      {text?.map((txt) => (
         <>
           {txt.role === 10 && (<pre
             style={{
@@ -54,7 +54,7 @@ const ListDetail = ({ post, comments, text, citation, appendix }: ListDetailProp
         </>
       ))}
       <h3>Preferences</h3>
-      {citation.map((cit) => (
+      {citation?.map((cit) => (
         <>
           <p>{cit.text}</p>
         </>
