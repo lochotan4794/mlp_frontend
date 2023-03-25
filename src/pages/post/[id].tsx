@@ -4,15 +4,20 @@ import { User, Post } from '../../interfaces'
 import { sampleUserData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
-
+import SideStyles from '../../styles/Side.module.css'
+import LeftPanel from '@/components/Left'
+import RightPanel from '@/components/Right'
 
 type Props = {
-  item?: Post
+  item: Post
   comments?: any[]
+  appendix?: any[]
+  citation?: any[]
+  text?: any[]
   errors?: string
 }
 
-const StaticPropsDetail = ({ item, comments, errors }: Props) => {
+const StaticPropsDetail = ({ item, comments, appendix, citation, text, errors }: Props) => {
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
@@ -29,11 +34,15 @@ const StaticPropsDetail = ({ item, comments, errors }: Props) => {
         item ? item.slug : 'User Detail'
       } | Next.js + TypeScript Example`}
     >
-      <p>{item?.slug}</p>
-      {/* {item && <ListDetail item={item} />} */}
-      {comments?.map((text) => (
-        <p>{text}</p>
-      ))}
+        <div className={SideStyles.main}>
+          <LeftPanel  slug={item?.slug} path={"/posts/"}/>
+          <div style={{
+            gridArea: "middleChild",
+            gridColumn: "7/29",
+          }}>{<ListDetail post={item} comments={comments} text={text} citation={citation} appendix={appendix} />}
+          </div>
+          <RightPanel slug={''} path={'posts/'} />
+        </div>
     </Layout>
   )
 }
@@ -97,7 +106,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const comments = await res1.json()
     console.log(comments)
 
-    return { props: { item, comments } }
+    return { props: { item, comments, appendix, citation, text} }
   } catch (err: any) {
     return { props: { errors: err.message } }
   }

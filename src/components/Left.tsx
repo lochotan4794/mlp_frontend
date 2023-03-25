@@ -106,7 +106,7 @@ import { useState, useEffect } from "react";
 // export default LeftPanel;
 
 type Props = {
-    slug: string
+    slug?: string
     path: string
   }
 
