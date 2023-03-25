@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 
 type Props = {
   item: Post
-  comments: any[]
+  comments?: any[]
   text: Text[]
   citation: Citation[]
   appendix: Appendix[]
