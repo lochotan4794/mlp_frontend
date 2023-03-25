@@ -27,6 +27,7 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
         item ? item.slug : 'User Detail'
       } | Next.js + TypeScript Example`}
     >
+      <p>{item?.slug}</p>
       {/* {item && <ListDetail item={item} />} */}
     </Layout>
   )
@@ -59,10 +60,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // direct database queries.
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const id = params?.id
-    const item = sampleUserData.find((data) => data.id === String('The-following-i-example-of-the'))
-    // By returning { props: item }, the StaticPropsDetail component
-    // will receive `item` as a prop at build time
+    // const id = params?.id
+    // const item = sampleUserData.find((data) => data.id === String('The-following-i-example-of-the'))
+    // // By returning { props: item }, the StaticPropsDetail component
+    // // will receive `item` as a prop at build time
+    // console.log("vao day")
+    const slug = params?.id
+    console.log(`https://blog.centralglobalbackend.de/blog/${slug}/`)
+    const res = await fetch(`https://blog.centralglobalbackend.de/blog/${slug}/`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    // console.log(res)
+    // const item = sampleUserData.find((data) => data.id === Number(id))
+    console.log(res)
+    const data = await res.json()
+    const item = data['post']
+    const appendix = data['appendix']
+    const citation = data['citation']
+    const text = data['text']
     return { props: { item } }
   } catch (err: any) {
     return { props: { errors: err.message } }
