@@ -5,12 +5,14 @@ import { sampleUserData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
 
+
 type Props = {
   item?: Post
+  comments?: any[]
   errors?: string
 }
 
-const StaticPropsDetail = ({ item, errors }: Props) => {
+const StaticPropsDetail = ({ item, comments, errors }: Props) => {
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
@@ -29,6 +31,9 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
     >
       <p>{item?.slug}</p>
       {/* {item && <ListDetail item={item} />} */}
+      {comments?.map((text) => (
+        <p>{text}</p>
+      ))}
     </Layout>
   )
 }
@@ -81,7 +86,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const appendix = data['appendix']
     const citation = data['citation']
     const text = data['text']
-    return { props: { item } }
+
+    const res1 = await fetch('https://blog.centralglobalbackend.de/' + "blog/" + slug + "/comments/", {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    const comments = await res1.json()
+    console.log(comments)
+
+    return { props: { item, comments } }
   } catch (err: any) {
     return { props: { errors: err.message } }
   }
