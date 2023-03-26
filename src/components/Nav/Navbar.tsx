@@ -7,7 +7,7 @@ import Router from 'next/router'
 import { render } from "react-dom";
 import { useRouter } from 'next/navigation';
 import { withRouter } from 'next/router'
-import {Header} from '../Dropdown'
+import { Header } from '../Dropdown'
 
 
 const MENU_LIST = [
@@ -139,10 +139,10 @@ class Navbar extends React.Component<any, any> {
                                     }}
                                     key={menu.text}
                                 >
-                                    <NavItem active={this.state.activeIdx === idx} {...menu} />
+                                    {idx == 2 && <Header />}
+                                    {idx !=2 && <NavItem active={this.state.activeIdx === idx} {...menu} />}
                                 </div>
                             ))}
-                            <Header />
                             <input className={`${this.state.navActive ? "active" : ""} search-button-sm`} placeholder="search" value={this.state.searchText} onChange={(e) => this.setState({ searchText: e.target.value })} onKeyDown={this.onKeyDown} />
                         </div>
                         <input className={`${this.state.navActive ? "active" : ""} search-button`} placeholder="search" value={this.state.searchText} onChange={(e) => this.setState({ searchText: e.target.value })} onKeyDown={this.onKeyDown} />

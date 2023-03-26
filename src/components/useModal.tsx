@@ -28,7 +28,7 @@ export default function UseModal() {
     }
 
     return (
-        <div>
+        <div className="user-container">
             {/* <button onClick={() => setShowModal(true)}>Login|Signup</button> */}
             {!user && (
                 <>
