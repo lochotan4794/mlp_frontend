@@ -238,6 +238,7 @@ nav {
 
 .search-button-sm.active {
   display: block;
+  width: 50%;
 }
 
 .search-button {

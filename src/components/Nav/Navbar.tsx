@@ -130,6 +130,7 @@ class Navbar extends React.Component<any, any> {
                                 <div></div>
                                 <div></div>
                                 <div></div>
+                                <polyline id="globalnav-menutrigger-bread-top" className="globalnav-menutrigger-bread globalnav-menutrigger-bread-top" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 5, 16 5"><animate id="globalnav-anim-menutrigger-bread-top-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 5, 16 5; 2 9, 16 9; 3.5 3.5, 15 15"></animate><animate id="globalnav-anim-menutrigger-bread-top-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 3.5, 15 15; 2 9, 16 9; 2 5, 16 5"></animate></polyline>
                             </div>
                             {MENU_LIST.map((menu, idx) => (
                                 <div
@@ -140,7 +141,7 @@ class Navbar extends React.Component<any, any> {
                                     key={menu.text}
                                 >
                                     {idx == 2 && <Header />}
-                                    {idx !=2 && <NavItem active={this.state.activeIdx === idx} {...menu} />}
+                                    {idx != 2 && <NavItem active={this.state.activeIdx === idx} {...menu} />}
                                 </div>
                             ))}
                             <input className={`${this.state.navActive ? "active" : ""} search-button-sm`} placeholder="search" value={this.state.searchText} onChange={(e) => this.setState({ searchText: e.target.value })} onKeyDown={this.onKeyDown} />
