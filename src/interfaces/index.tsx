@@ -60,3 +60,30 @@ export type Post = {
   topic: number
   ava: string
 }
+
+export type ExtPost = {
+  id: Number
+  tags: [Rel]
+  title: string
+  abstract: string
+  slug: string
+  updated_on: string
+  created_on: string
+  status: number
+  thumnail: string
+  total_visited: number
+  eng_ver: string
+  lang: number
+  relationship: [number]
+  video: string
+  pdf: string
+  previous_post: ItemLink
+  next_post: ItemLink
+  topic: number
+  ava: string
+}
+
+export type Rel = {
+  id: Number
+  title: string
+}

@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-import { User, Post } from '../../interfaces'
+import { User, Post, ExtPost } from '../../interfaces'
 import { sampleUserData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import ListDetail from '../../components/ListDetail'
@@ -9,7 +9,7 @@ import LeftPanel from '@/components/Left'
 import RightPanel from '@/components/Right'
 
 type Props = {
-  item: Post
+  item: ExtPost
   comments?: any[]
   appendix?: any[]
   citation?: any[]
@@ -51,7 +51,13 @@ export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
-  const res = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
+  // const res = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  // })
+  const res = await fetch(`https://blog.centralglobalbackend.de/blog/post/all/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import MainLayout from '@/components/MainLayout'
-import { ItemLink, Post } from '@/interfaces'
+import { ItemLink, ExtPost } from '@/interfaces'
 import List from '@/components/List'
 import LeftSide from '@/components/LeftSide'
 import RightSide from '@/components/RightSide'
@@ -22,9 +22,9 @@ import RightPanel from '@/components/Right'
 
 
 type IndexProps = {
-  all: Post[],
-  relative: Post[],
-  relevent: Post[]
+  all: ExtPost[],
+  relative: ExtPost[],
+  relevent: ExtPost[]
 }
 
 

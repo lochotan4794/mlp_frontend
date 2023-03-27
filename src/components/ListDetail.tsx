@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Comment, Post, Text, Citation, Appendix } from '../interfaces'
+import { Comment, ExtPost, Text, Citation, Appendix } from '../interfaces'
 import styles from '../styles/List.module.css'
 import Comments from '../components/Comment/Comments.jsx'
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 
 type ListDetailProps = {
-  post: Post
+  post: ExtPost
   comments?: Comment[]
   text?: Text[]
   citation?: Citation[]
