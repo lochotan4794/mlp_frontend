@@ -11,10 +11,13 @@ type Props = {
 const RightSide = ({ items }: Props) => (
   <ul className={SideStyles.side}>
     {items.map((item) => (
-      <div className={SideStyles.itemLink}>
-      <a href={'posts/' + item.slug}>
-        {item.title}
-      </a></div>
+      // <div className={SideStyles.itemLink}>
+<a href={'posts/' + item.slug} style={{
+        color: "#337ab7",
+        textDecoration: "none", fontWeight: "400"
+      }}>        {item.title}
+      </a>
+      // </div>
     ))}
   </ul>
 )
