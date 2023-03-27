@@ -274,12 +274,29 @@ nav {
 
 @media (prefers-reduced-motion) {}
 
+.container-footer {
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 0 22px;
+  padding-left: max(22px, env(safe-area-inset-left));
+  padding-right: max(22px, env(safe-area-inset-right));
+  padding-bottom: 0.8em;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
 
-  .header-container{
+  .header-container {
     width: 100%;
     padding: 0 !important;
+  }
+
+  .container-footer {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+    padding-left: max(22px, env(safe-area-inset-left));
+    padding-right: max(22px, env(safe-area-inset-right));
   }
 
   .header-top {
@@ -314,8 +331,24 @@ nav {
   }
 }
 
+ac-gf-sosumi-li {
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
+
+  .container-footer {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+    padding-left: max(22px, env(safe-area-inset-left));
+    padding-right: max(22px, env(safe-area-inset-right));
+  }
 
   .header-top {
     display: flex;
@@ -982,4 +1015,3 @@ button span {
 .form-style-6 input[type="button"]:hover {
   background: #2ebc99;
 }
-

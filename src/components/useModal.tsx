@@ -28,7 +28,7 @@ export default function UseModal() {
   }
 
   return (
-    <div style={{ display: "block", width: "fit-content", margin:"0", minWidth:"10%", alignItems:"end", alignContent:"end", justifyContent:"end" }}>
+    <div style={{ display: "flex", width: "fit-content", margin:"0", minWidth:"10%", alignItems:"end", alignContent:"end", justifyContent:"end", paddingBottom: "0.8rem"}}>
       {/* <button onClick={() => setShowModal(true)}>Login|Signup</button> */}
       <div>
       {!user && (

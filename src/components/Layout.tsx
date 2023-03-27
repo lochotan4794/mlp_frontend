@@ -36,7 +36,7 @@ const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
       {children}
       <footer style={{ backgroundColor: "#f5f5f7" }}>
         <div
-          className="container"
+          className="container-footer"
           style={{
             bottom: "0",
             height: "fit-content",
@@ -44,12 +44,13 @@ const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
             alignItems: "center",
             fontWeight: "bold",
             fontSize: "14px",
+            paddingTop:"0.8rem"
           }}
         >
           Email: htanloc994@gmail.com
         </div>
         <div
-          className="container"
+          className="container-footer"
           style={{
             bottom: "0",
             height: "fit-content",
@@ -63,20 +64,20 @@ const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
           <a className="footer-section" href="/terms">Newsletter | </a>
           <a className="footer-section" href="/terms">RSS</a>
         </div>
-        <div
-          className="container"
+        <ul
+          className="container-footer"
           style={{
             bottom: "0",
             height: "fit-content",
             width: "100%",
             alignItems: "center",
           }}>
-          <p> This website was found with purpose sharing knowledge about machine learning field from clearly explanation to practical real world application.
-          </p>
-          <p>
-            I hope if my works and research can deliver usefulness for Developer or Machine learning participant.</p>
-          <p>Any feedback or comment is label for my future direction.
-            Please enjoy this site, I am happy to get your contribution and support from you</p></div>
+          <li className='ac-gf-sosumi-li'> This website was found with purpose sharing knowledge about machine learning field from clearly explanation to practical real world application.
+          </li>
+          <li className='ac-gf-sosumi-li'>
+            I hope if my works and research can deliver usefulness for Developer or Machine learning participant.</li>
+          <li className='ac-gf-sosumi-li'>Any feedback or comment is label for my future direction.
+            Please enjoy this site, I am happy to get your contribution and support from you</li></ul>
         <hr />
         <div
           className="container"

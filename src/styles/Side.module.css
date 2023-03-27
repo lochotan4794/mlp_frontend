@@ -4,16 +4,22 @@
     grid-template-areas: "leftChild middleChild rightChild";
     grid-gap: 10px;
     grid-auto-columns: 1fr;
+    margin-top: 1rem;
+
 }
 
 .leftSide {
     grid-area: "leftChild";
     grid-column: "1/7";
+    margin-top: 1rem;
+
 }
 
 .rightSide {
     grid-area: "rightChild";
     grid-column: "29/36";
+    margin-top: 1rem;
+
 }
 
 .itemLink {
@@ -34,6 +40,7 @@
 
     .side {
         padding-left: 0;
+        margin-top: 2rem;
     }
     .leftSide {
 
@@ -78,6 +85,7 @@
     .leftSide {
         grid-area: "leftChild";
         grid-column: "1/7";
+        margin-top: 2rem;
     }
 
     .rightSide {

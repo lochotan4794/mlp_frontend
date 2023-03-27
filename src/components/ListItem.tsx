@@ -16,7 +16,8 @@ const ListItem = ({ data }: Props) => (
       <div className={ListStyles.item}>
         <img className={ListStyles.itemImg} src={data.ava} />
         <div className={ListStyles.itemCnt}>
-          <h4>{data.title}</h4>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <h4>{data.title}</h4><p>{data.created_on}</p></div>
           <p >{data.abstract.substring(0, 200) + "..."}</p></div></div>
     </>
   </Link>
