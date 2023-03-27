@@ -13,7 +13,7 @@ type Props = {
 
 const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
   <>
-    <div className='header-container container'>
+    <div className='header-container container' style={{paddingLeft:"5%", paddingRight:"5%"}}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -24,7 +24,7 @@ const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
         <div className='header-top'>
           <div style={{ width: "100%" }}>
             <a style={{ textDecoration: "unset" }} href='/'>
-              <h2>Machine Learning Practices</h2>
+              <h2 className='NamePage'>Machine Learning Practices</h2>
             </a>
             <p>Practical Knownledge in Machine Learning</p>
           </div>
@@ -32,11 +32,11 @@ const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
         </div>
         <Navbar />
       </header></div>
-    <div className="container">
+    <div className="container" style={{paddingLeft:"5%", paddingRight:"5%"}}>
       {children}
-      <footer style={{ backgroundColor: "#f5f5f7" }}>
+      <footer style={{ backgroundColor: "#f5f5f7", paddingLeft:"10%", paddingRight:"10%" }}>
         <div
-          className="container-footer"
+          className="container"
           style={{
             bottom: "0",
             height: "fit-content",
