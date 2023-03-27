@@ -13,18 +13,25 @@ type Props = {
 
 const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
   <>
-  <div className='header-container container'>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/styles/default.min.css"></link>
-    </Head>
-    <header>
-      <div className='header-top'><div style={{ width: "90%" }}><a style={{ textDecoration: "unset" }} href='/'><h1>Machine Learning Practices</h1></a>
-        <p>Practical Knownledge in Machine Learning</p></div><div style={{ alignItems: "end", textAlign: "end", alignContent: "flex-end", width: "10%", height: "100%" }}><UseModal /></div></div>
-      <Navbar />
-    </header></div>
+    <div className='header-container container'>
+      <Head>
+        <title>{title}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/styles/default.min.css"></link>
+      </Head>
+      <header>
+        <div className='header-top'>
+          <div style={{ width: "100%" }}>
+            <a style={{ textDecoration: "unset" }} href='/'>
+              <h2>Machine Learning Practices</h2>
+            </a>
+            <p>Practical Knownledge in Machine Learning</p>
+          </div>
+          <UseModal />
+        </div>
+        <Navbar />
+      </header></div>
     <div className="container">
       {children}
       <footer style={{ backgroundColor: "#f5f5f7" }}>

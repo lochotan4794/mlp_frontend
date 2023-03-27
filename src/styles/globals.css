@@ -261,6 +261,14 @@ nav {
   font-weight: bold;
 }
 
+.header-top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  vertical-align: bottom;
+  align-items: end;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
 
@@ -312,6 +320,7 @@ nav {
   .header-top {
     display: flex;
     flex-direction: row;
+    width: 100%;
   }
 
   .nav__menu-list {

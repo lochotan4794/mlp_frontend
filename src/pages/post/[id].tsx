@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const comments = await res1.json()
     console.log(comments)
 
-    return { props: { item, comments, appendix, citation, text} }
+    return { props: { item, comments, appendix, citation, text}, revalidate: 10 }
   } catch (err: any) {
     return { props: { errors: err.message } }
   }
