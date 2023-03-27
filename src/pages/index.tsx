@@ -9,7 +9,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import MainLayout from '@/components/MainLayout'
-import { ItemLink, ExtPost, Tag } from '@/interfaces'
+import { ItemLink, ExtPost, Tag, PostList } from '@/interfaces'
 import List from '@/components/List'
 import LeftSide from '@/components/LeftSide'
 import RightSide from '@/components/RightSide'
@@ -22,7 +22,7 @@ import RightPanel from '@/components/Right'
 
 
 type IndexProps = {
-  all: ExtPost[],
+  all: PostList,
   tags: Tag[]
 }
 
@@ -61,7 +61,7 @@ const IndexPage = ({ all, tags }: IndexProps) => (
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://blog.centralglobalbackend.de/blog/post/all/`, {
+  const res = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import ListItem from './ListItem'
-import { ExtPost, Tag } from '../interfaces'
+import { ExtPost, Tag, PostList } from '../interfaces'
 import styles from "../styles/Home.module.css";
 import Pagination from './Pagination';
 import { useState, useEffect } from "react";
 import { paginate } from '@/helpers/paginate';
 
 type Props = {
-  items: ExtPost[]
+  items: PostList
   tags: Tag[]
 }
 
