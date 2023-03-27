@@ -1,8 +1,8 @@
 import styles from "../styles/Home.module.css";
-import { Post } from "@/interfaces";
+import { ExtPost } from "@/interfaces";
 
 type PagingProp = {
-  items: Post[],
+  items: ExtPost[],
   pageSize: number,
   currentPage: number,
   onPageChange: any

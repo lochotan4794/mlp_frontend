@@ -18,6 +18,8 @@ type Props = {
 function Searchpage() {
   const router = useRouter()
   const [posts, setPost] = useState(null)
+  const [tags, setTag] = useState([])
+
   const [keysearch, setKey] = useState("")
   const [isLoading, setLoading] = useState(false)
 
@@ -61,6 +63,7 @@ function Searchpage() {
     .then((data) => {
       console.log(data)
       setPost(data.post)
+      setTag(data.tags)
       setLoading(false)
     })
   }, []);
@@ -71,7 +74,7 @@ function Searchpage() {
   return (<>
   <Layout title="Users List | Next.js + TypeScript Example">
     <h1>{keysearch}</h1>
-    <List items={posts} />
+    <List items={posts} tags={tags} />
   </Layout></>)
 }
 

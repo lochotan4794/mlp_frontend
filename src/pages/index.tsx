@@ -9,7 +9,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import MainLayout from '@/components/MainLayout'
-import { ItemLink, ExtPost } from '@/interfaces'
+import { ItemLink, ExtPost, Tag } from '@/interfaces'
 import List from '@/components/List'
 import LeftSide from '@/components/LeftSide'
 import RightSide from '@/components/RightSide'
@@ -23,12 +23,11 @@ import RightPanel from '@/components/Right'
 
 type IndexProps = {
   all: ExtPost[],
-  relative: ExtPost[],
-  relevent: ExtPost[]
+  tags: Tag[]
 }
 
 
-const IndexPage = ({ all, relative, relevent }: IndexProps) => (
+const IndexPage = ({ all, tags }: IndexProps) => (
   <Layout title="Machine Learning Practices">
     {/* <h1>My Post</h1>
     <HlCode content={`
@@ -55,14 +54,14 @@ const IndexPage = ({ all, relative, relevent }: IndexProps) => (
     <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax> */}
 
     {/* <MainLayout middleChild={<List items={all} />} leftChild={<LeftSide items={relative} />} rightChild={<RightSide items={relevent} />} /> */}
-    <MainLayout middleChild={<List items={all} />} leftChild={<LeftPanel slug={''} path={'post/'}/>} rightChild={<RightPanel slug={''} path={'post/'}/>} />
+    <MainLayout middleChild={<List items={all} tags={tags} />} leftChild={<LeftPanel slug={''} path={'post/'}/>} rightChild={<RightPanel slug={''} path={'post/'}/>} />
 
   </Layout>
 )
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://blog.centralglobalbackend.de/blog/list/all/`, {
+  const res = await fetch(`https://blog.centralglobalbackend.de/blog/post/all/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -71,10 +70,9 @@ export async function getServerSideProps() {
   const data = await res.json()
   console.log(data)
   const all = data['post']
-  const relative = all
-  const relevent = all
+  const tags = data['post']
   // Pass data to the page via props
-  return { props: { all, relative, relevent } }
+  return { props: { all, tags } }
 }
 
 // export async function getServerSideProps() {

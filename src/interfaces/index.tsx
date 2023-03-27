@@ -63,7 +63,6 @@ export type Post = {
 
 export type ExtPost = {
   id: Number
-  tags: [Rel]
   title: string
   abstract: string
   slug: string
@@ -74,7 +73,7 @@ export type ExtPost = {
   total_visited: number
   eng_ver: string
   lang: number
-  relationship: [number]
+  relationship: [Rel]
   video: string
   pdf: string
   previous_post: ItemLink
@@ -84,6 +83,11 @@ export type ExtPost = {
 }
 
 export type Rel = {
+  post: Number
+  tag: Number
+}
+
+export type Tag = {
   id: Number
   title: string
 }

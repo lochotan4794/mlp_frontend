@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ListItem from './ListItem'
-import { ExtPost } from '../interfaces'
+import { ExtPost, Tag } from '../interfaces'
 import styles from "../styles/Home.module.css";
 import Pagination from './Pagination';
 import { useState, useEffect } from "react";
@@ -8,6 +8,7 @@ import { paginate } from '@/helpers/paginate';
 
 type Props = {
   items: ExtPost[]
+  tags: Tag[]
 }
 
 // const List = ({ items }: Props) => (
@@ -23,7 +24,7 @@ type Props = {
 // export default List
 
 
-export default function List({ items }: Props) {
+export default function List({ items, tags }: Props) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
@@ -44,7 +45,7 @@ export default function List({ items }: Props) {
       />
         {paginatedPosts.map((item: ExtPost) => (
           <div key={item.title} style={{}}>
-            <ListItem data={item} />
+            <ListItem data={item} tags={tags}/>
           </div>
         ))}
     </>
