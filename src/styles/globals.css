@@ -222,11 +222,23 @@ nav {
 
 .search-button-sm.active {
   display: block;
+  border: solid 1px grey;
+  border-radius: 5px;
   width: 50%;
+  align-items: end;
+  height: 30px;
+  padding-left: 1rem;
+
 }
 
 .search-button {
   display: block;
+  border: solid 1px grey;
+  border-radius: 5px;
+  width: 20%;
+  align-items: end;
+  padding-left: 1rem;
+  height: 30px;
 }
 
 .search-button.active {
@@ -258,6 +270,15 @@ nav {
   font-size: 28;
   color: green;
   font-weight: 400;
+}
+
+.topic-dropdown-item {
+  margin-top: 10px;
+  font-weight: 450;
+  /* background-color: #384b37; */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-decoration: none !important;
 }
 
 /* Enable hover only on non-touch devices */
@@ -939,7 +960,7 @@ button span {
   background-color: transparent;
   border: none;
   color: white;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .dropdown-menu-1 {
