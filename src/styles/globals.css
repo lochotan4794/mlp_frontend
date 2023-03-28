@@ -200,37 +200,21 @@ nav {
 }
 
 .nav__menu-bar div {
+  margin-left: 16px;
   width: 40px;
   height: 4px;
   background-color: black;
   border-radius: 2px;
 }
 
-.nav__menu-list {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  /* width: 288px; */
-  width: 100wh;
-  row-gap: 24px;
-  right: -288px;
-  padding: 24px 16px;
-  transition: all 0.2s;
-  /* min-height: calc(100vh - 20px); */
-  height: 0;
-  background-color: #697967;
-  /* max-height: 24px; */
-
+.nav__menu-bar.active div {
+  margin-left: 0px;
+  width: 40px;
+  height: 4px;
+  background-color: black;
+  border-radius: 2px;
 }
 
-.nav__menu-list.active {
-  /* right: 0; */
-  height: 100vh;
-  display: flex;
-  top: 0;
-}
 
 .search-button-sm {
   display: none;
@@ -290,8 +274,35 @@ nav {
   padding-bottom: 0.8em;
 }
 
+
 /* Mobile */
 @media (max-width: 700px) {
+
+
+  .nav__menu-list {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    /* width: 288px; */
+    width: 100wh;
+    row-gap: 24px;
+    right: -288px;
+    padding: 24px 16px;
+    transition: all 0.2s;
+    /* min-height: calc(100vh - 20px); */
+    height: 0;
+    background-color: #697967;
+    /* max-height: 24px; */
+  }
+
+  .nav__menu-list.active {
+    /* right: 0; */
+    height: 100vh;
+    display: flex;
+    top: 0;
+  }
 
   .main-container {
     padding-left: 0;
@@ -325,24 +336,6 @@ nav {
     display: none;
   }
 
-  .nav__menu-list {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    /* width: 288px; */
-    width: 100wh;
-    row-gap: 24px;
-    right: -288px;
-    padding: 24px 16px;
-    transition: all 0.2s;
-    /* min-height: calc(100vh - 20px); */
-    height: 0;
-    background-color: #697967;
-    /* max-height: 24px; */
-
-  }
 }
 
 ac-gf-sosumi-li {
@@ -418,6 +411,8 @@ ac-gf-sosumi-li {
     align-items: center;
     max-height: 24px;
     padding: 0;
+    display: flex;
+    margin-left: 16px;
   }
 
   .nav__link::before {
@@ -437,6 +432,19 @@ ac-gf-sosumi-li {
 }
 
 @media all {
+
+
+  /* .nav__menu-list {
+    position: unset;
+    flex-direction: row;
+    min-height: fit-content;
+    width: fit-content;
+    column-gap: 24px;
+    align-items: center;
+    max-height: 24px;
+    padding: 0;
+  }  */
+
   .comments {
     margin-top: 20px;
     padding-left: 10px;

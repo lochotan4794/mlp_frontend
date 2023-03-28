@@ -12,7 +12,7 @@ const RightSide = ({ items }: Props) => (
   <ul className={SideStyles.side}>
     {items.map((item) => (
       // <div className={SideStyles.itemLink}>
-<a href={'posts/' + item.slug} style={{
+      <a href={'posts/' + item.slug} style={{
         color: "#337ab7",
         textDecoration: "none", fontWeight: "400"
       }}>        {item.title}

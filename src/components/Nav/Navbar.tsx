@@ -125,7 +125,7 @@ class Navbar extends React.Component<any, any> {
                         <div className={`${this.state.navActive ? "active" : ""} nav__menu-list`}>
                             <div
                                 onClick={() => this.setState({ navActive: !this.state.navActive })}
-                                className={`nav__menu-bar`}
+                                className={ `${this.state.navActive ? "active" : ""} nav__menu-bar`}
                             >
                                 <div></div>
                                 <div></div>

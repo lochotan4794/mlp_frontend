@@ -1,4 +1,4 @@
-
+/* 
   .nav__menu-bar{
     display: flex;
     flex-direction: column;
@@ -70,4 +70,4 @@
     .nav__link:hover:before{
      width: 100%;
     }
-  }
+  } */
