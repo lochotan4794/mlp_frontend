@@ -48,6 +48,12 @@ export default function List({ items, tags }: Props) {
             <ListItem data={item} tags={tags}/>
           </div>
         ))}
+        <Pagination
+        items={items} // 100
+        currentPage={currentPage} // 1
+        pageSize={pageSize} // 10
+        onPageChange={onPageChange}
+      />
     </>
   )
 }

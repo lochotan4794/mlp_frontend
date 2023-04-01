@@ -9,12 +9,19 @@
 .itemImg {
     width: fit-content;
     max-width: 35%;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .itemCnt {
     max-width: 75%;
-    margin: 2rem;
+    margin: 1rem;
+}
+
+
+.searchItemTitle {
+    font-weight: 440;
+    width: fit-content;
+    color: #337ab7;
 }
 
 /* Enable hover only on non-touch devices */
@@ -78,5 +85,313 @@
 
     to {
         transform: rotate(0deg);
+    }
+}
+
+@media screen {
+    .big-title {
+        font-size: 22px;
+        font-weight: 450;
+    }
+
+    .list-item {
+        font-size: 18px;
+    }
+
+    .Footer-att {
+        margin-top: 10px;
+        font-weight: 440;
+        display: block;
+        color: white;
+        text-align: justify;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 5%;
+        padding-bottom:5%;
+        font-size: 12px;
+    }
+
+    .searchItemTitle {
+        font-size: 16px;
+        font-weight: 380;
+    }
+} 
+
+
+@media (min-width: 640px) {
+
+    .dropdown-content {
+        border: none;
+        padding-top: 15px;
+        background-color: #384b37;
+        font-weight: bold;
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+      }
+
+    .run-wrapper{
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        background: #384b37;
+        text-align: right;
+    }
+    
+    .marquee {
+        background: transparent;
+        white-space: nowrap;
+        font-size: 18px;
+        font-weight: 460;
+        color: white;
+    }
+
+    .NamePage {
+        font-size: 28px;
+    }
+
+    .big-title {
+        font-size: 22px;
+        font-weight: 450;
+        text-align: center;
+    }
+
+    .list-item {
+        font-size: 18px;
+    }
+
+    .Footer-att {
+        margin-top: 10px;
+        font-weight: 440;
+        display: block;
+        color: white;
+        text-align: center;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        font-size: 14px;
+    }
+
+    .searchItemTitle {
+        font-size: 16px;
+        font-weight: 380;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .dropdown-content {
+        border: none;
+        padding-top: 15px;
+        background-color: #384b37;
+        font-weight: bold;
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+      }
+
+    .run-wrapper{
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        background: #384b37;
+        text-align: right;
+    }
+    
+    .marquee {
+        background: transparent;
+        white-space: nowrap;
+        font-size: 18px;
+        font-weight: 460;
+        color: white;
+        /* -webkit-animation: rightThenLeft 160s linear; */
+    }
+    .mainview {
+        width: 100%;
+    }
+
+    .NamePage {
+        font-size: 32px;
+    }
+
+    .navbardropdown {
+        display: none;
+    }
+
+    .search-box {
+        max-width: 20%;
+    }
+
+    .big-title {
+        font-size: 32px;
+        font-weight: 450;
+    }
+
+    .list-item {
+        font-size: 18px;
+    }
+
+    .Footer-att {
+        margin-top: 10px;
+        font-weight: 440;
+        display: block;
+        color: white;
+        text-align: center;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        font-size: 12px;
+    }
+
+    .searchItemTitle {
+        font-size: 18px;
+        font-weight: 380;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .dropdown-content {
+        border: none;
+        padding-top: 15px;
+        background-color: rgb(105, 122, 104);
+        font-weight: bold;
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+      }
+
+    .run-wrapper{
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        background: #384b37;
+        text-align: right;
+    }
+    
+    .marquee {
+        background: transparent;
+        white-space: nowrap;
+        font-size: 18px;
+        font-weight: 460;
+        color: white;
+        -webkit-animation: rightThenLeft 160s linear;
+    }
+
+    .mainview {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .NamePage {
+        font-size: 28px;
+    }
+
+    .big-title {
+        font-size: 32px;
+        font-weight: 450;
+    }
+    .list-item {
+        font-size: 18px;
+    }
+
+    .Footer-att {
+        margin-top: 10px;
+        font-weight: 440;
+        display: block;
+        color: white;
+        text-align: center;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        font-size: 16px;
+    }
+
+
+    .search-item-title {
+        font-size: 18px;
+        font-weight: 380;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .dropdown-content {
+        border: none;
+        padding-top: 15px;
+        background-color: rgb(105, 122, 104);
+        font-weight: bold;
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow: auto;
+        /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+      }
+
+    .run-wrapper{
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        background: #384b37;
+        text-align: right;
+    }
+    
+    .marquee {
+        background: transparent;
+        white-space: nowrap;
+        font-size: 18px;
+        font-weight: 460;
+        color: white;
+        -webkit-animation: rightThenLeft 160s linear;
+    }
+
+    .mainview {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .NamePage {
+        font-size: 28px;
+    }
+
+    .big-title {
+        font-size: 32px;
+        font-weight: 450;
+    }
+
+    .list-item {
+        font-size: 18px;
+    }
+    .Footer-att {
+        margin-top: 10px;
+        font-weight: 440;
+        display: block;
+        color: white;
+        text-align: center;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        font-size: 16px;
+    }
+
+    .searchItemTitle {
+        font-size: 20px;
+        font-weight: 380;
     }
 }

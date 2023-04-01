@@ -43,12 +43,14 @@ export default function ListItem({ data, tags }: Props) {
           <img className={ListStyles.itemImg} src={data.ava} />
           <div className={ListStyles.itemCnt}>
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <h4>{data.title}</h4><p>{data.created_on}</p></div>
-            <p >{data.abstract.substring(0, 200) + "..."}</p>
+              <p className={ListStyles.searchItemTitle}>{data.title}</p>
+              <p>{data.created_on}</p></div>
+            <p style={{ color: "black" }} >{data.abstract.substring(0, 200) + "..."}</p>
             {data.relationship?.map((item, index) => (
 
               tags.filter((tag) => tag.id === item.tag).map((t) => (
-                <button onClick={(e) =>handleOnclick(e, t.title)}>{t.title}</button>
+                <button style={{ fontWeight: "320", color: "white", backgroundColor: "green", border: "none", marginRight: "5px", borderRadius: "5px" }}
+                  onClick={(e) => handleOnclick(e, t.title)}>{t.title}</button>
               ))))}
           </div>
         </div>

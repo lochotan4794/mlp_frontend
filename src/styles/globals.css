@@ -167,7 +167,7 @@ pre .javascript .function {
 
 pre code {
   display: block;
-  background: #002451;
+  /* background: #002451; */
   color: white;
   font-family: Menlo, Monaco, Consolas, monospace;
   line-height: 1.5;
