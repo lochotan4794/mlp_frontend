@@ -12,6 +12,9 @@ import axios from 'axios';
 import { withRouter } from 'next/router'
 import LeftPanel from '@/components/Left'
 import RightPanel from '@/components/Right'
+import SideStyles from '../styles/Side.module.css'
+import MainLayout from '@/components/MainLayout'
+
 
 type Props = {
   items: Post[]
@@ -75,10 +78,14 @@ function Searchpage() {
 
   return (<>
   <Layout title="Users List | Next.js + TypeScript Example">
-    <h1>{keysearch}</h1>
-    <LeftPanel  slug={''} path={""}/>
+    {/* <h1>{keysearch}</h1> */}
+    {/* <LeftPanel  slug={''} path={""}/>
     <List items={posts} tags={tags} />
-    <RightPanel slug={''} path={""} />
+    <RightPanel slug={''} path={""} /> */}
+
+
+    <MainLayout middleChild={<List  keyword={keysearch} items={posts} tags={tags} />} leftChild={<LeftPanel slug={''} path={'post/'}/>} rightChild={<RightPanel slug={''} path={'post/'}/>} />
+
   </Layout></>)
 }
 

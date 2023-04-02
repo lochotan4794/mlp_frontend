@@ -19,6 +19,8 @@ const Layout = ({ children, title = 'Machine Learning Pracices' }: Props) => (
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/styles/default.min.css"></link>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+
       </Head>
       <header>
         <div className='header-top'>

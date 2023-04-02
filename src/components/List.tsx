@@ -9,9 +9,10 @@ import { paginate } from '@/helpers/paginate';
 type Props = {
   items: PostList
   tags: Tag[]
+  keyword?: string
 }
 
-export default function List({ items, tags }: Props) {
+export default function List({ items, tags, keyword }: Props) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
@@ -24,18 +25,23 @@ export default function List({ items, tags }: Props) {
 
   return (
     <>
+      {keyword &&
+        <>
+          <p>Key Search: {keyword}</p>
+        </>
+      }
       <Pagination
         items={items} // 100
         currentPage={currentPage} // 1
         pageSize={pageSize} // 10
         onPageChange={onPageChange}
       />
-        {paginatedPosts.map((item: ExtPost) => (
-          <div key={item.title} style={{}}>
-            <ListItem data={item} tags={tags}/>
-          </div>
-        ))}
-        <Pagination
+      {paginatedPosts.map((item: ExtPost) => (
+        <div key={item.title} style={{}}>
+          <ListItem data={item} tags={tags} />
+        </div>
+      ))}
+      <Pagination
         items={items} // 100
         currentPage={currentPage} // 1
         pageSize={pageSize} // 10
