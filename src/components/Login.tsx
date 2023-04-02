@@ -71,9 +71,30 @@ class LoginForm extends React.Component<props, state> {
     }
   }
 
-  _handleKeyPress(e: any) {
+  _handleKeyPress = async (e: any) => {
     if (e.key === "Enter") {
-      this.handleSubmit()
+      e?.preventDefault();
+      this.setState({ submitted: true });
+      const { user } = this.state;
+      if (user.username && user.password) {
+        // this.props.register(user);
+        console.log(user);
+        var bodyFormData = new FormData();
+        bodyFormData.append("username", user.username);
+        // bodyFormData.append("email", user.email);
+        bodyFormData.append("password", user.password);
+        try {
+          const response = await axios.post(severUrl + `registration/login_user`, bodyFormData)
+          if (response) {
+            console.log(response.data.result);
+            localStorage.setItem("user", JSON.stringify(response.data));
+            window.location.reload();
+          }
+        } catch (err: any) {
+          console.log(err.response.data)
+          this.setState({ errorMsg: err.response.data.message })
+        }
+      }
     }
   }
 

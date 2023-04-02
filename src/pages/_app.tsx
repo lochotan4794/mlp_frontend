@@ -8,14 +8,13 @@ import hljs from 'highlight.js/lib/core'
 import python from 'highlight.js/lib/languages/python'
 hljs.registerLanguage('python', python)
 
-
-
 export default function App({ Component, pageProps }: AppProps) {
-    useEffect(() => {
+  useEffect(() => {
+    hljs.registerLanguage('python', python)
     hljs.highlightAll();
   }, []);
   return (
-  <MathJaxContext>
-    <Component {...pageProps} />
-  </MathJaxContext>)
+    <MathJaxContext>
+      <Component {...pageProps} />
+    </MathJaxContext>)
 }

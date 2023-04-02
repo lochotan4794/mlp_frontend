@@ -11,19 +11,6 @@ type Props = {
   tags: Tag[]
 }
 
-// const List = ({ items }: Props) => (
-//   <ul>
-//     {items.map((item) => (
-//       <li key={item.title}>
-//         <ListItem data={item} />
-//       </li>
-//     ))}
-//   </ul>
-// )
-
-// export default List
-
-
 export default function List({ items, tags }: Props) {
 
   const [currentPage, setCurrentPage] = useState(1);

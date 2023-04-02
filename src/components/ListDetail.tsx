@@ -3,6 +3,7 @@ import { Comment, ExtPost, Text, Citation, Appendix } from '../interfaces'
 import styles from '../styles/List.module.css'
 import Comments from '../components/Comment/Comments.jsx'
 import { MathJax, MathJaxContext } from "better-react-mathjax";
+import VideoModal from './VModal';
 
 type ListDetailProps = {
   post: ExtPost
@@ -21,12 +22,8 @@ const ListDetail = ({ post, comments, text, citation, appendix }: ListDetailProp
         {post.next_post && <a href={"/post" + post.next_post.slug}>{post.next_post.title}</a>}
       </div>
       <h1>{post.title}</h1>
-      <div>
-        {post.video && <button>{'video'}</button>}
-      </div>
-      <div>
-        {post.pdf && <button>{'pdf'}</button>}
-      </div>
+      <VideoModal link={post.video} />
+      {post.pdf && <button>{'pdf'}</button>}
       <p>{post.abstract}</p>
       {appendix?.map((app) => (
         <>

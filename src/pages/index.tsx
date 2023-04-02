@@ -68,9 +68,9 @@ export async function getServerSideProps() {
     },
   })
   const data = await res.json()
-  console.log(data)
   const all = data['post']
   const tags = data['tags']
+  console.log(all)
   // Pass data to the page via props
   return { props: { all, tags } }
 }
