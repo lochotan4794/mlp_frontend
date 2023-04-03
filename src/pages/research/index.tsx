@@ -1,10 +1,13 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
+import RightPanel from '@/components/Right'
+import LeftPanel from '@/components/Left'
+import MainLayout from '@/components/MainLayout'
 
 const AboutPage = () => (
     <Layout>
-        <>
+        <MainLayout middleChild={<>
             <div style={{ fontSize: "22px" }}>
                 <div>About this site</div>
                 <div>
@@ -41,7 +44,8 @@ const AboutPage = () => (
                 <div>I am very happy to get your donation for maintaining this site also used for pay server cost. You can help me get a coffee while writing this site.</div>
                 <div>Thanks for your time with me.</div>
             </div>
-        </>
+        </>} leftChild={<LeftPanel slug={''} path={'post/'} />} rightChild={<RightPanel slug={''} path={'post/'} />} />
+
     </Layout>
 )
 

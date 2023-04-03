@@ -8,6 +8,9 @@ import { useState } from "react";
 // import LoadingOverlay from "./LoadingOverlay";
 import severUrl from "@/utils/api";
 import Layout from "@/components/Layout";
+import RightPanel from '@/components/Right'
+import LeftPanel from '@/components/Left'
+import MainLayout from '@/components/MainLayout'
 
 export default function SettingPage() {
 

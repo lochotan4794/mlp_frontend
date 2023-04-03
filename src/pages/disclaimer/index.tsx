@@ -1,10 +1,14 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
+import RightPanel from '@/components/Right'
+import LeftPanel from '@/components/Left'
+import MainLayout from '@/components/MainLayout'
 
 const Disclaimer = () => (
     <Layout>
-        <>
+
+        <MainLayout middleChild={<>
             <h3>
                 Disclaimer for Machine Learning Practices
             </h3>
@@ -24,7 +28,8 @@ const Disclaimer = () => (
             </p>
             Update
             Should we update, amend or make any changes to this document, those changes will be prominently posted here.
-        </>
+        </>} leftChild={<LeftPanel slug={''} path={'post/'} />} rightChild={<RightPanel slug={''} path={'post/'} />} />
+
     </Layout>
 )
 
